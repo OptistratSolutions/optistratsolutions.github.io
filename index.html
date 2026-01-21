@@ -7,12 +7,12 @@
 
   <style>
     :root{
-      --brand:#18b6b6;          /* teal accent */
-      --ink:#0f172a;            /* dark text */
-      --muted:#475569;          /* muted text */
-      --bg:#f6f8fb;             /* light background */
-      --card:#ffffff;           /* card background */
-      --border:#e2e8f0;         /* border */
+      --brand:#18b6b6;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --border:#e2e8f0;
     }
 
     body{
@@ -33,37 +33,30 @@
       box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
     }
 
-    .header{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
+    /* LOGO BANNER */
+    .logo-banner{
+      text-align: center;
+      margin-bottom: 28px;
     }
 
-    .header-text{
-      max-width: 65%;
-      min-width: 280px;
-    }
-
-    .logo{
-      max-width: 320px;
+    .logo-banner img{
+      width: 100%;
+      max-width: 760px;   /* keeps it elegant on big screens */
       height: auto;
-      display: block;
-      margin: 0;
+      display: inline-block;
     }
 
     h1{
       font-size: 42px;
       letter-spacing: -0.02em;
-      margin: 0 0 8px;
+      margin: 0 0 10px;
     }
 
     .tagline{
       color: var(--muted);
       font-size: 16px;
       max-width: 70ch;
-      margin: 0 0 14px;
+      margin-bottom: 14px;
     }
 
     h2{
@@ -74,9 +67,9 @@
     .card{
       border: 1px solid var(--border);
       background: #ffffff;
-      padding: 18px 18px;
+      padding: 18px;
       border-radius: 14px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     ul{
@@ -89,12 +82,9 @@
       font-weight: 600;
       text-decoration: none;
     }
-    a:hover{ text-decoration: underline; }
 
-    .footer{
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 13px;
+    a:hover{
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -102,21 +92,20 @@
 <body>
   <div class="wrap">
 
-    <div class="header">
-      <div class="header-text">
-        <h1>OptiStrat Solutions</h1>
-
-        <p class="tagline">
-          OptiStrat Solutions provides project coordination, automation, and technical consulting services for industrial and commercial environments.
-        </p>
-
-        <p class="tagline" style="font-style: italic;">
-          We bring structure, visibility, and control to operations that are slipping through the cracks.
-        </p>
-      </div>
-
-      <img src="Logo.png" class="logo" alt="OptiStrat Solutions logo">
+    <!-- LOGO AT TOP -->
+    <div class="logo-banner">
+      <img src="Logo.png" alt="OptiStrat Solutions logo">
     </div>
+
+    <h1>OptiStrat Solutions</h1>
+
+    <p class="tagline">
+      OptiStrat Solutions provides project coordination, automation, and technical consulting services for industrial and commercial environments.
+    </p>
+
+    <p class="tagline" style="font-style: italic;">
+      We bring structure, visibility, and control to operations that are slipping through the cracks.
+    </p>
 
     <div class="card">
       <h2>Services</h2>
