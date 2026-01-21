@@ -1,141 +1,143 @@
 <!doctype html>
 <html lang="en">
-  <style>
-  :root{
-    --brand:#18b6b6;          /* teal accent */
-    --ink:#0f172a;            /* dark text */
-    --muted:#475569;          /* muted text */
-    --bg:#f6f8fb;             /* light background */
-    --card:#ffffff;           /* card background */
-    --border:#e2e8f0;         /* border */
-  }
-
-  body{
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 48px 22px;
-    line-height: 1.7;
-  }
-
-  .wrap{
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 34px;
-    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
-  }
-
-  .logo{
-    max-width: 280px;
-    height: auto;
-    display: block;
-    margin-bottom: 18px;
-  }
-
-  h1{
-    font-size: 42px;
-    letter-spacing: -0.02em;
-    margin: 6px 0 6px;
-  }
-
-  .tagline{
-    color: var(--muted);
-    font-size: 16px;
-    max-width: 70ch;
-    margin-bottom: 22px;
-  }
-
-  .accent{
-    height: 4px;
-    width: 84px;
-    background: var(--brand);
-    border-radius: 999px;
-    margin: 14px 0 22px;
-  }
-
-  h2{
-    font-size: 18px;
-    margin: 0 0 10px;
-  }
-
-  .card{
-    border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 18px 18px;
-    border-radius: 14px;
-    margin-top: 16px;
-  }
-
-  ul{
-    margin: 0;
-    padding-left: 18px;
-  }
-
-  a{
-    color: var(--brand);
-    font-weight: 600;
-    text-decoration: none;
-  }
-  a:hover{ text-decoration: underline; }
-
-  .footer{
-    margin-top: 22px;
-    color: var(--muted);
-    font-size: 13px;
-  }
-</style>
-
-
 <head>
   <meta charset="utf-8">
   <title>OptiStrat Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --brand:#18b6b6;          /* teal accent */
+      --ink:#0f172a;            /* dark text */
+      --muted:#475569;          /* muted text */
+      --bg:#f6f8fb;             /* light background */
+      --card:#ffffff;           /* card background */
+      --border:#e2e8f0;         /* border */
+    }
+
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 22px;
+      line-height: 1.7;
+    }
+
+    .wrap{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+    }
+
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .header-text{
+      max-width: 65%;
+      min-width: 280px;
+    }
+
+    .logo{
+      max-width: 320px;
+      height: auto;
+      display: block;
+      margin: 0;
+    }
+
+    h1{
+      font-size: 42px;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+    }
+
+    .tagline{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 70ch;
+      margin: 0 0 14px;
+    }
+
+    h2{
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 18px 18px;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+
+    ul{
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    a{
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    a:hover{ text-decoration: underline; }
+
+    .footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
-  <img src="Logo.png" alt="OptiStrat Solutions logo" style="max-width:260px; height:auto; margin-bottom:12px;">
 
+    <div class="header">
+      <div class="header-text">
+        <h1>OptiStrat Solutions</h1>
 
-  <h1>OptiStrat Solutions</h1>
+        <p class="tagline">
+          OptiStrat Solutions provides project coordination, automation, and technical consulting services for industrial and commercial environments.
+        </p>
 
-  <p>
-    OptiStrat Solutions provides project coordination, automation, and technical
-    consulting services for industrial and commercial environments.
-  </p>
-    <p class="tagline" style="font-style: italic;">
-  We bring structure, visibility, and control to operations that are slipping through the cracks.
-</p>
+        <p class="tagline" style="font-style: italic;">
+          We bring structure, visibility, and control to operations that are slipping through the cracks.
+        </p>
+      </div>
 
-
-  <div class="card">
-  <h2>Services</h2>
-  <ul>
-    <li>Project coordination and execution support</li>
-    <li>Automation, control, and panel solutions</li>
-    <li>Technical consulting and documentation</li>
-  </ul>
-</div>
-
-
-  <div class="card">
-  <h2>Contact</h2>
-  <p>
-    Email:
-    <a href="mailto:jennifer.vl@optistratsolutions.co.za">
-      jennifer.vl@optistratsolutions.co.za
-    </a>
-  </p>
-  <p>Phone: +27 61 455 5652</p>
-</div>
-
-
-  <p><em>Website under active development.</em></p>
+      <img src="Logo.png" class="logo" alt="OptiStrat Solutions logo">
     </div>
 
+    <div class="card">
+      <h2>Services</h2>
+      <ul>
+        <li>Project coordination and execution support</li>
+        <li>Automation, control, and panel solutions</li>
+        <li>Technical consulting and documentation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>
+        Email:
+        <a href="mailto:jennifer.vl@optistratsolutions.co.za">
+          jennifer.vl@optistratsolutions.co.za
+        </a>
+      </p>
+      <p>Phone: +27 61 455 5652</p>
+    </div>
+
+  </div>
 </body>
 </html>
-<!-- force rebuild -->
-
