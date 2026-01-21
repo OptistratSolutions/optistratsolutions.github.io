@@ -1,12 +1,93 @@
 <!doctype html>
 <html lang="en">
   <style>
-  body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-  h1 { margin: 10px 0 8px; }
-  h2 { margin-top: 28px; }
-  ul { padding-left: 20px; }
-  .card { border: 1px solid #ddd; padding: 16px; border-radius: 10px; margin-top: 14px; }
+  :root{
+    --brand:#18b6b6;          /* teal accent */
+    --ink:#0f172a;            /* dark text */
+    --muted:#475569;          /* muted text */
+    --bg:#f6f8fb;             /* light background */
+    --card:#ffffff;           /* card background */
+    --border:#e2e8f0;         /* border */
+  }
+
+  body{
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 48px 22px;
+    line-height: 1.7;
+  }
+
+  .wrap{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 34px;
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+  }
+
+  .logo{
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  h1{
+    font-size: 42px;
+    letter-spacing: -0.02em;
+    margin: 6px 0 6px;
+  }
+
+  .tagline{
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 70ch;
+    margin-bottom: 22px;
+  }
+
+  .accent{
+    height: 4px;
+    width: 84px;
+    background: var(--brand);
+    border-radius: 999px;
+    margin: 14px 0 22px;
+  }
+
+  h2{
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+
+  .card{
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 18px 18px;
+    border-radius: 14px;
+    margin-top: 16px;
+  }
+
+  ul{
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  a{
+    color: var(--brand);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a:hover{ text-decoration: underline; }
+
+  .footer{
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 13px;
+  }
 </style>
+
 
 <head>
   <meta charset="utf-8">
