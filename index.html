@@ -18,15 +18,15 @@
       overflow: hidden;
     }
 
-    /* Fullscreen background image */
+    /* Stretch image to full screen (no crop, no black bars) */
     img.fullpage {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: cover;   /* fills entire screen */
       z-index: -1;
+      display: block;
     }
 
     img {
@@ -34,7 +34,7 @@
       -webkit-user-drag: none;
     }
 
-    /* Contact overlay block */
+    /* Contact block */
     .contact-block {
       position: absolute;
       bottom: 40px;
@@ -42,8 +42,11 @@
       color: #ffffff;
       font-size: 16px;
       line-height: 1.6;
+      z-index: 2;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
 
+    /* Email link */
     .contact-block a {
       color: #00bcd4;
       text-decoration: none;
@@ -55,12 +58,16 @@
     }
 
     /* Quote button */
-    .quote-button {
+    .quote-button,
+    .quote-button:visited,
+    .quote-button:hover,
+    .quote-button:active {
       display: inline-block;
       margin-top: 12px;
       padding: 10px 18px;
       background-color: #00bcd4;
-      color: #ffffff; /* white readable text */
+      color: #ffffff !important;
+      text-decoration: none !important;
       border-radius: 4px;
       font-size: 14px;
       font-weight: bold;
@@ -70,7 +77,6 @@
       background-color: #0097a7;
     }
 
-    /* Mobile responsiveness */
     @media (max-width: 768px) {
       .contact-block {
         left: 20px;
