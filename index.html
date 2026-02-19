@@ -10,33 +10,75 @@
   <meta name="robots" content="index, follow">
 
   <style>
-    /* Reset */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       background: #000;
+      font-family: Arial, sans-serif;
     }
 
     body {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
-    /* Full-page image (no cropping) */
     img.fullpage {
       width: 100%;
       height: 100%;
-      object-fit: contain;   /* keeps entire image visible */
-      background: #000;      /* fills empty space cleanly */
+      object-fit: contain;
+      background: #000;
       display: block;
     }
 
-    /* Optional: prevent image dragging */
     img {
       user-select: none;
       -webkit-user-drag: none;
+    }
+
+    /* Contact overlay */
+    .contact-block {
+      position: absolute;
+      bottom: 30px;
+      left: 40px;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .contact-block a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
+    }
+
+    .quote-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #00bcd4;
+      color: #000;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .quote-button:hover {
+      background-color: #0097a7;
+    }
+
+    /* Mobile adjustment */
+    @media (max-width: 768px) {
+      .contact-block {
+        left: 20px;
+        bottom: 20px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -47,5 +89,20 @@
     alt="OptiStrat Solutions – Bringing structure and control to complex operational environments"
     class="fullpage"
   >
+
+  <div class="contact-block">
+    +27 61 455 5652<br>
+    <a href="mailto:jennifer.vl@optistratsolutions.co.za">
+      jennifer.vl@optistratsolutions.co.za
+    </a><br>
+    <a 
+      href="https://forms.clickup.com/9005033045/p/f/8cbvtjn-17292/7HZ7U4TQMMSS0NQ4CB/form"
+      target="_blank"
+      class="quote-button"
+    >
+      Request a Quote
+    </a>
+  </div>
+
 </body>
 </html>
