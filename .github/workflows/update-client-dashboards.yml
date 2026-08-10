@@ -1,0 +1,43 @@
+name: Update client dashboards
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: client-dashboard-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Pull latest KPI data from ClickUp
+        env:
+          CLICKUP_API_TOKEN: ${{ secrets.CLICKUP_API_TOKEN }}
+        run: node scripts/sync-clickup.mjs
+
+      - name: Publish changed dashboard data
+        run: |
+          if git diff --quiet -- projects/pandrol-sara-2026/data/project.json; then
+            echo "No dashboard data changed."
+            exit 0
+          fi
+          git config user.name "OptiStrat Dashboard Bot"
+          git config user.email "dashboard-bot@users.noreply.github.com"
+          git add projects/pandrol-sara-2026/data/project.json
+          git commit -m "chore: refresh Pandrol dashboard data"
+          git push
