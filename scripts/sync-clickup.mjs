@@ -1,9 +1,10 @@
 import {readFile, writeFile} from "node:fs/promises";
-import {resolve} from "node:path";
+import {dirname, resolve} from "node:path";
+import {fileURLToPath} from "node:url";
 
-const ROOT = resolve(import.meta.dirname, "..");
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const CONFIG_PATH = process.env.PROJECT_CONFIG || resolve(ROOT, "config/projects/pandrol-sara-2026.json");
-const API_ROOT = "https://api.clickup.com/api/v2";
+const API_ROOT = process.env.CLICKUP_API_ROOT || "https://api.clickup.com/api/v2";
 const token = process.env.CLICKUP_API_TOKEN;
 
 if (!token) {
@@ -121,16 +122,18 @@ function buildMilestones(tasks) {
     const match = tasks.find((task) => normalized(task.name).includes(normalized(item.taskMatch)));
     const date = dateIso(match?.due_date) || item.date;
     const complete = match ? isDone(match) : false;
-    const overdue = !complete && new Date(date) < now;
+    const unlinked = !match;
+    const overdue = !complete && !unlinked && new Date(date) < now;
     return {
       name: item.name,
       date,
       complete,
       overdue,
-      note: complete ? "Achieved" : overdue ? "Overdue" : match ? match.status?.status || "Planned" : "Planned"
+      unlinked,
+      note: complete ? "Achieved" : overdue ? "Overdue" : match ? match.status?.status || "Planned" : "Planned date"
     };
   }).sort((a, b) => new Date(a.date) - new Date(b.date));
-  const nextIndex = milestones.findIndex((item) => !item.complete);
+  const nextIndex = milestones.findIndex((item) => !item.complete && (!item.unlinked || new Date(item.date) >= now));
   return milestones.map((item, index) => ({
     ...item,
     state: item.complete ? "complete" : index === nextIndex ? "next" : "upcoming"
@@ -177,7 +180,7 @@ const publishedRisksIssues = openTasks
     type: tagsOf(task).includes("issue") ? "Issue" : "Risk",
     rating: task.priority?.priority || "Open",
     status: task.status?.status || "Open",
-    response: task.text_content?.slice(0, 140) || task.status?.status || "Open",
+    response: task.status?.status || "Open",
     tone: ["urgent", "high"].includes(normalized(task.priority?.priority)) ? "red" : "amber"
   }));
 
