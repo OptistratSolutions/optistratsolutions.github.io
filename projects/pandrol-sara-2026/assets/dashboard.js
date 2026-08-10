@@ -61,7 +61,7 @@ function renderAttention(items = []) {
   list.innerHTML = items.map((item) => `
     <article class="attention-item">
       <span class="status-chip status-${toneClass(item.tone)}">${escapeHtml(item.type || "Action")}</span>
-      <div><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.owner || "Owner not assigned")}</small></div>
+      <div><strong>${escapeHtml(item.name)}</strong></div>
       <span class="deadline-date">${escapeHtml(item.dueDate ? formatDate(item.dueDate) : "No due date")}</span>
     </article>`).join("");
 }
