@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T09:34:06.550Z",
+  "generatedAt": "2026-08-10T10:34:01.348Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -33,7 +33,44 @@
     "percent": 3.6,
     "detail": "3 of 71 tasks verified complete"
   },
-  "clientAttention": [],
+  "clientAttention": [
+    {
+      "name": "3.1.2 – Obtain Pandrol booking and sponsorship documents",
+      "type": "Action",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "0.7 – Draft KPI framework and data requirements",
+      "type": "Approval",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "1.2 – Build stakeholder register, governance and RACI",
+      "type": "Action",
+      "dueDate": "2026-08-12T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.1 – Meet the stand assembler and validate existing stand information",
+      "type": "Action",
+      "dueDate": "2026-08-14T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.6 – Select products, materials and demonstrations for showcase",
+      "type": "Decision",
+      "dueDate": "2026-08-28T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "1.7 – Develop budget baseline, forecast and approval matrix",
+      "type": "Action",
+      "dueDate": "2026-08-28T02:00:00.000Z",
+      "tone": "amber"
+    }
+  ],
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
@@ -86,10 +123,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "33%",
-      "status": "Recovery",
-      "tone": "red",
-      "detail": "1 of 3 due tasks completed on time"
+      "value": "100%",
+      "status": "On target",
+      "tone": "green",
+      "detail": "3 of 3 due tasks completed on time"
     }
   ],
   "milestones": [
