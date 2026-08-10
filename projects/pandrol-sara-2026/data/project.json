@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T14:35:06.673Z",
+  "generatedAt": "2026-08-10T15:36:42.082Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -27,7 +27,7 @@
     "overdue": false,
     "unlinked": true,
     "note": "Planned date",
-    "state": "next"
+    "state": "upcoming"
   },
   "progress": {
     "percent": 3.6,
@@ -74,10 +74,10 @@
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
-      "value": "Not yet due",
-      "status": "Future gate",
-      "tone": "neutral",
-      "detail": "0 of 0 due critical gates achieved"
+      "value": "0%",
+      "status": "Below target",
+      "tone": "red",
+      "detail": "0 of 1 due critical gates achieved"
     },
     {
       "label": "Budget status",
@@ -137,7 +137,7 @@
       "overdue": false,
       "unlinked": true,
       "note": "Planned date",
-      "state": "next"
+      "state": "upcoming"
     },
     {
       "name": "Scope and schedule baseline",
@@ -146,7 +146,7 @@
       "overdue": false,
       "unlinked": false,
       "note": "in progress",
-      "state": "upcoming"
+      "state": "next"
     },
     {
       "name": "Stand dry-build",
