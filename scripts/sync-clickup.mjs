@@ -87,10 +87,6 @@ function includesAny(values, targets) {
   return values.some((value) => targetSet.includes(normalized(value)));
 }
 
-function ownerName(task) {
-  return (task.assignees || []).map((person) => person.username || person.email).filter(Boolean).join(", ") || "Owner not assigned";
-}
-
 function toneForPercent(value, green = 90, amber = 75) {
   if (value === null) return "neutral";
   if (value >= green) return "green";
@@ -167,7 +163,6 @@ const attention = openTasks
   .map((task) => ({
     name: task.name,
     type: tagsOf(task).includes("approval required") ? "Approval" : tagsOf(task).includes("decision required") ? "Decision" : "Action",
-    owner: ownerName(task),
     dueDate: dateIso(task.due_date),
     tone: dateMs(task.due_date) && dateMs(task.due_date) < now.getTime() ? "red" : "amber"
   }));
