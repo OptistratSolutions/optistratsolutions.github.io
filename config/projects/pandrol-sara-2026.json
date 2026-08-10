@@ -18,7 +18,7 @@
     {"name":"Close-out","description":"Lead handover, reconciliation, KPI report and lessons learned","from":"2026-10-27","to":"2026-10-30"}
   ],
   "milestones": [
-    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","taskMatch":"formal mobilisation"},
+    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","taskMatch":"sponsor kickoff"},
     {"name":"Scope and schedule baseline","date":"2026-08-18T17:00:00+02:00","taskMatch":"baseline the wbs"},
     {"name":"Stand dry-build","date":"2026-08-28T17:00:00+02:00","taskMatch":"conduct the complete stand dry-build"},
     {"name":"Stand snags closed","date":"2026-09-04T17:00:00+02:00","taskMatch":"close and verify all stand snags"},
