@@ -24,6 +24,7 @@ const tasks = [
   {id: "b", parent: "869edm1p7", name: "Approve scope decision", status: {status: "in progress", type: "custom"}, due_date: String(now + day), time_estimate: 7200000, priority: {priority: "high"}, tags: [{name: "client-attention"}, {name: "decision-required"}]},
   {id: "c", parent: "869edm1p7", name: "Published logistics risk", status: {status: "open", type: "open"}, due_date: String(now + 5 * day), time_estimate: 3600000, priority: {priority: "high"}, tags: [{name: "client-visible"}, {name: "risk"}]},
   {id: "d", parent: "a", name: "Nested completed task", status: {status: "complete", type: "closed"}, due_date: String(now - day), date_closed: String(now - 2 * day), time_estimate: 3600000, priority: {priority: "normal"}, tags: []},
+  {id: "e", parent: "a", name: "Nested upcoming deadline", status: {status: "planning", type: "open"}, due_date: String(now + 3 * day), time_estimate: 3600000, priority: {priority: "normal"}, tags: []},
   {id: "outside", parent: "another-project", name: "Unrelated task", status: {status: "open", type: "open"}, due_date: String(now - day), priority: {priority: "urgent"}, tags: []}
 ];
 
@@ -48,9 +49,11 @@ try {
     child.on("exit", (code) => code === 0 ? resolvePromise() : reject(new Error(`Sync exited with ${code}`)));
   });
   const result = JSON.parse(await readFile(output, "utf8"));
-  if (result.progress.detail !== "2 of 4 tasks verified complete") throw new Error("Project-tree filtering or completion count failed");
+  if (result.progress.detail !== "2 of 5 tasks verified complete") throw new Error("Project-tree filtering or completion count failed");
   if (result.clientAttention.length !== 1) throw new Error("Client-attention publication rule failed");
   if (result.publishedRisksIssues.length !== 1) throw new Error("Risk publication rule failed");
+  if (!result.upcomingDeadlines.some((item) => item.name === "Nested upcoming deadline")) throw new Error("Nested upcoming-deadline rule failed");
+  if ("outcomeGroups" in result || "outcomePhaseNote" in result) throw new Error("Removed outcome data must not be published");
   if (result.deliveryKpis.find((item) => item.label === "Budget status")?.value !== "+3.0%") throw new Error("Budget KPI failed");
   console.log("Sync transformation test passed.");
 } finally {
