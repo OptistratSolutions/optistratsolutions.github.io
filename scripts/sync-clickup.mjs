@@ -87,6 +87,10 @@ function includesAny(values, targets) {
   return values.some((value) => targetSet.includes(normalized(value)));
 }
 
+function ownerName(task) {
+  return (task.assignees || []).map((person) => person.username || person.email).filter(Boolean).join(", ") || "Owner not assigned";
+}
+
 function toneForPercent(value, green = 90, amber = 75) {
   if (value === null) return "neutral";
   if (value >= green) return "green";
@@ -140,12 +144,6 @@ function currency(value) {
   return new Intl.NumberFormat("en-ZA", {style: "currency", currency: "ZAR", maximumFractionDigits: 0}).format(value);
 }
 
-function metricValue(task, key, suffix = "") {
-  const value = findField(task, config.customFieldAliases[key]);
-  if (value === null) return "Awaiting data";
-  return `${value}${suffix}`;
-}
-
 const parentTask = await api(`/task/${config.projectTaskId}`);
 const allTasks = await getListTasks(config.listId);
 const tasks = selectProjectTree(allTasks, config.projectTaskId);
@@ -163,6 +161,7 @@ const attention = openTasks
   .map((task) => ({
     name: task.name,
     type: tagsOf(task).includes("approval required") ? "Approval" : tagsOf(task).includes("decision required") ? "Decision" : "Action",
+    owner: ownerName(task),
     dueDate: dateIso(task.due_date),
     tone: dateMs(task.due_date) && dateMs(task.due_date) < now.getTime() ? "red" : "amber"
   }));
@@ -218,15 +217,16 @@ if (overdueCritical.length || nextMilestone?.overdue) {
   healthSummary = `${overdue.length} overdue action${overdue.length === 1 ? "" : "s"} are being controlled; client decisions are shown below where applicable.`;
 }
 
+const sastOffsetMs = 2 * 60 * 60 * 1000;
+const sastNow = new Date(now.getTime() + sastOffsetMs);
+const todayStart = Date.UTC(sastNow.getUTCFullYear(), sastNow.getUTCMonth(), sastNow.getUTCDate()) - sastOffsetMs;
 const twoWeeks = now.getTime() + 14 * 86400000;
 const upcomingDeadlines = openTasks
-  .filter((task) => dateMs(task.due_date) && dateMs(task.due_date) >= now.getTime() && dateMs(task.due_date) <= twoWeeks)
+  .filter((task) => dateMs(task.due_date) && dateMs(task.due_date) >= todayStart && dateMs(task.due_date) <= twoWeeks)
   .sort((a, b) => dateMs(a.due_date) - dateMs(b.due_date))
   .slice(0, 8)
   .map((task) => ({name: task.name, dueDate: dateIso(task.due_date), status: task.status?.status || "Open"}));
 
-const eventActive = now >= new Date(config.project.eventStart) && now <= new Date(config.project.eventEnd);
-const postEventActive = now > new Date(config.project.eventEnd);
 const snapshot = {
   schemaVersion: 1,
   generatedAt: now.toISOString(),
@@ -257,34 +257,7 @@ const snapshot = {
     percent: readinessPercent,
     label: readinessPercent >= 90 ? "Ready for current gate" : readinessPercent >= 60 ? "Building to gate" : "Recovery required",
     note: `${readinessDue.filter(isDone).length} of ${readinessDue.length} due readiness checks passed.`
-  },
-  outcomePhaseNote: eventActive ? "Event measures are live and update from approved ClickUp fields." : postEventActive ? "Post-event conversion measures are active." : "Exhibition and post-event measures are intentionally dormant during delivery.",
-  outcomeGroups: [
-    {
-      title: "Exhibition outcomes",
-      active: eventActive || postEventActive,
-      activationLabel: "Opens at event",
-      items: [
-        {label: "Qualified leads", value: eventActive || postEventActive ? metricValue(parentTask, "qualifiedLeads") : "Not active"},
-        {label: "Priority-account meetings", value: eventActive || postEventActive ? metricValue(parentTask, "priorityMeetings") : "Not active"},
-        {label: "Demonstrations", value: eventActive || postEventActive ? metricValue(parentTask, "demonstrations") : "Not active"},
-        {label: "Meaningful conversations", value: eventActive || postEventActive ? metricValue(parentTask, "meaningfulConversations") : "Not active"},
-        {label: "Lead-data completeness", value: eventActive || postEventActive ? metricValue(parentTask, "leadCompleteness", "%") : "Not active"},
-        {label: "Stakeholder satisfaction", value: eventActive || postEventActive ? metricValue(parentTask, "stakeholderSatisfaction") : "Not active"}
-      ]
-    },
-    {
-      title: "Post-event conversion",
-      active: postEventActive,
-      activationLabel: "Opens after event",
-      items: [
-        {label: "Lead handover time", value: postEventActive ? metricValue(parentTask, "leadHandoverHours", " h") : "Not active"},
-        {label: "Follow-up within SLA", value: postEventActive ? metricValue(parentTask, "followUpSla", "%") : "Not active"},
-        {label: "Opportunities created", value: postEventActive ? metricValue(parentTask, "opportunitiesCreated") : "Not active"},
-        {label: "Management report turnaround", value: postEventActive ? metricValue(parentTask, "reportTurnaroundDays", " days") : "Not active"}
-      ]
-    }
-  ]
+  }
 };
 
 const outputPath = resolve(ROOT, config.publicPath, "data/project.json");
