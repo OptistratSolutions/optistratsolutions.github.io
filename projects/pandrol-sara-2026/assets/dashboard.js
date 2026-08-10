@@ -165,7 +165,6 @@ function render(data) {
   renderDeadlines(data.upcomingDeadlines);
   renderRisks(data.publishedRisksIssues);
   renderReadiness(data.readiness);
-  renderOutcomes(data.outcomeGroups, data.outcomePhaseNote);
   renderUpdated(data.generatedAt);
 }
 
