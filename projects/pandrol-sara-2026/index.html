@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pandrol SA – SARA Exhibition 2026 client project dashboard, managed by OptiStrat Solutions.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pandrol SA – SARA Exhibition 2026 | OptiStrat Project Control</title>
+  <link rel="stylesheet" href="./assets/dashboard.css">
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="OptiStrat Solutions home">
+        <span class="brand-mark" aria-hidden="true">OS</span>
+        <span>
+          <strong>OptiStrat Solutions</strong>
+          <small>Client Project Control</small>
+        </span>
+      </a>
+      <div class="data-source">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Source: ClickUp</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="dashboard" class="shell dashboard" aria-live="polite">
+    <section class="hero panel">
+      <div class="hero-copy">
+        <p class="eyebrow">Pandrol South Africa · SARA 2026</p>
+        <h1>Pandrol SA – SARA Exhibition 2026</h1>
+        <p class="hero-subtitle">Stakeholder view of delivery health, readiness and decisions requiring attention.</p>
+        <div class="meta-row">
+          <span>Sandton Convention Centre</span>
+          <span>20–23 October 2026</span>
+          <span>Project PROJ-1360</span>
+        </div>
+      </div>
+      <div class="health-block" id="health-block">
+        <span class="status-label">Overall project health</span>
+        <div class="rag-pill rag-neutral" id="overall-rag">Sync pending</div>
+        <p id="health-summary">Preparing the first automated ClickUp update.</p>
+      </div>
+    </section>
+
+    <section class="executive-grid" aria-label="Executive project summary">
+      <article class="summary-card">
+        <span class="card-label">Current phase</span>
+        <strong id="current-phase">Mobilisation</strong>
+        <small id="phase-window">Project baseline setup</small>
+      </article>
+      <article class="summary-card">
+        <span class="card-label">Next major milestone</span>
+        <strong id="next-milestone">Scope and schedule baseline</strong>
+        <small id="next-milestone-date">18 August 2026</small>
+      </article>
+      <article class="summary-card progress-card">
+        <span class="card-label">Verified project progress</span>
+        <div class="progress-value"><strong id="project-progress">—</strong><span id="progress-denominator">Awaiting sync</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Verified project progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="project-progress-bar"></span>
+        </div>
+      </article>
+      <article class="summary-card countdown-card">
+        <span class="card-label">Event countdown</span>
+        <strong id="event-countdown">71 days</strong>
+        <small>to SARA 2026</small>
+      </article>
+    </section>
+
+    <section class="attention panel" id="attention-panel">
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="eyebrow">Decision focus</p>
+          <h2>Actions requiring client attention</h2>
+        </div>
+        <span class="count-badge" id="attention-count">0</span>
+      </div>
+      <div id="attention-list" class="attention-list">
+        <p class="empty-state">No client-attention items are currently published.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="delivery-kpis-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Delivery control</p>
+          <h2 id="delivery-kpis-title">Core project KPIs</h2>
+        </div>
+        <p>Only decision-useful measures are shown.</p>
+      </div>
+      <div class="kpi-grid" id="delivery-kpis"></div>
+    </section>
+
+    <section class="two-column">
+      <article class="panel">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Critical path</p>
+            <h2>Milestone status</h2>
+          </div>
+        </div>
+        <div class="milestone-list" id="milestone-list"></div>
+      </article>
+
+      <article class="panel">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Two-week view</p>
+            <h2>Upcoming deadlines</h2>
+          </div>
+        </div>
+        <div class="deadline-list" id="deadline-list"></div>
+      </article>
+    </section>
+
+    <section class="two-column risk-readiness-row">
+      <article class="panel">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Controlled exposure</p>
+            <h2>Published risks and issues</h2>
+          </div>
+        </div>
+        <div id="risk-list" class="risk-list"></div>
+      </article>
+
+      <article class="panel readiness-panel">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Gate confidence</p>
+            <h2>Readiness status</h2>
+          </div>
+        </div>
+        <div class="readiness-visual">
+          <div class="readiness-ring" id="readiness-ring"><span id="readiness-value">—</span></div>
+          <div>
+            <strong id="readiness-label">Not yet active</strong>
+            <p id="readiness-note">Formal readiness gates begin during stand validation and production.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="outcome-kpis-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Phase-aware outcomes</p>
+          <h2 id="outcome-kpis-title">Exhibition and post-event KPIs</h2>
+        </div>
+        <p id="outcome-phase-note">These measures activate when the relevant project phase begins.</p>
+      </div>
+      <div class="outcome-groups" id="outcome-groups"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p><strong>OptiStrat Solutions</strong> · Independent project control for Pandrol South Africa</p>
+      <p>Last updated: <time id="last-updated">Awaiting first automated sync</time></p>
+    </div>
+  </footer>
+
+  <noscript>This dashboard requires JavaScript to display the latest project data.</noscript>
+  <script src="./assets/dashboard.js" defer></script>
+</body>
+</html>

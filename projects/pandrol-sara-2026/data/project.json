@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": null,
+  "project": {
+    "id": "869edm1p7",
+    "reference": "PROJ-1360",
+    "name": "Pandrol SA – SARA Exhibition 2026",
+    "eventStart": "2026-10-20T00:00:00+02:00",
+    "eventEnd": "2026-10-23T23:59:59+02:00"
+  },
+  "health": {
+    "rag": "neutral",
+    "label": "Sync pending",
+    "summary": "The dashboard is ready for its first secure ClickUp synchronisation."
+  },
+  "phase": {
+    "name": "Mobilisation",
+    "description": "Authority, scope, requirements and baselines"
+  },
+  "nextMilestone": {
+    "name": "Scope and schedule baseline",
+    "date": "2026-08-18T17:00:00+02:00"
+  },
+  "progress": {
+    "percent": null,
+    "detail": "Awaiting first sync"
+  },
+  "clientAttention": [],
+  "deliveryKpis": [
+    {"label":"Milestone adherence","value":"—","status":"Sync pending","tone":"neutral","detail":"Critical gates achieved by baseline date"},
+    {"label":"Budget status","value":"Awaiting baseline","status":"Not active","tone":"neutral","detail":"Forecast versus approved budget"},
+    {"label":"Overdue critical actions","value":"—","status":"Sync pending","tone":"neutral","detail":"Urgent incomplete actions past due"},
+    {"label":"Risk exposure","value":"—","status":"Sync pending","tone":"neutral","detail":"Published high and critical exposure"},
+    {"label":"Supplier OTIF","value":"Not active","status":"Future phase","tone":"neutral","detail":"On-time and in-full deliveries"},
+    {"label":"Readiness pass rate","value":"Not active","status":"Future phase","tone":"neutral","detail":"Accepted checks at readiness gates"},
+    {"label":"Change volume","value":"—","status":"Sync pending","tone":"neutral","detail":"Approved and open change requests"},
+    {"label":"Schedule health","value":"—","status":"Sync pending","tone":"neutral","detail":"Open work completed on or before due date"}
+  ],
+  "milestones": [
+    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","state":"next","note":"Current gate"},
+    {"name":"Scope and schedule baseline","date":"2026-08-18T17:00:00+02:00","state":"upcoming","note":"Planned"},
+    {"name":"Stand dry-build","date":"2026-08-28T17:00:00+02:00","state":"upcoming","note":"Planned"},
+    {"name":"Exhibition-ready go/no-go","date":"2026-10-09T17:00:00+02:00","state":"upcoming","note":"Planned"},
+    {"name":"SARA exhibition","date":"2026-10-20T08:00:00+02:00","state":"upcoming","note":"Event"}
+  ],
+  "upcomingDeadlines": [],
+  "publishedRisksIssues": [],
+  "readiness": {
+    "percent": null,
+    "label": "Not yet active",
+    "note": "Formal readiness measurement activates during stand validation and production."
+  },
+  "outcomePhaseNote": "Exhibition and post-event measures are intentionally dormant during mobilisation.",
+  "outcomeGroups": [
+    {
+      "title": "Exhibition outcomes",
+      "active": false,
+      "activationLabel": "Opens at event",
+      "items": [
+        {"label":"Qualified leads","value":"Not active"},
+        {"label":"Priority-account meetings","value":"Not active"},
+        {"label":"Demonstrations","value":"Not active"},
+        {"label":"Meaningful conversations","value":"Not active"},
+        {"label":"Lead-data completeness","value":"Not active"},
+        {"label":"Stakeholder satisfaction","value":"Not active"}
+      ]
+    },
+    {
+      "title": "Post-event conversion",
+      "active": false,
+      "activationLabel": "Opens after event",
+      "items": [
+        {"label":"Lead handover time","value":"Not active"},
+        {"label":"Follow-up within SLA","value":"Not active"},
+        {"label":"Opportunities created","value":"Not active"},
+        {"label":"Management report turnaround","value":"Not active"}
+      ]
+    }
+  ]
+}
