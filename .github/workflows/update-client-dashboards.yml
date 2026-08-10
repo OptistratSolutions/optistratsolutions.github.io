@@ -18,12 +18,14 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out website
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Pull latest KPI data from ClickUp
         env:
@@ -32,12 +34,32 @@ jobs:
 
       - name: Publish changed dashboard data
         run: |
-          if git diff --quiet -- projects/pandrol-sara-2026/data/project.json; then
-            echo "No dashboard data changed."
-            exit 0
-          fi
+          DATA_FILE="projects/pandrol-sara-2026/data/project.json"
+          cp "$DATA_FILE" /tmp/pandrol-project.json
+
           git config user.name "OptiStrat Dashboard Bot"
           git config user.email "dashboard-bot@users.noreply.github.com"
-          git add projects/pandrol-sara-2026/data/project.json
-          git commit -m "chore: refresh Pandrol dashboard data"
-          git push
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git checkout -B main origin/main
+            cp /tmp/pandrol-project.json "$DATA_FILE"
+
+            if git diff --quiet -- "$DATA_FILE"; then
+              echo "No dashboard data changed."
+              exit 0
+            fi
+
+            git add "$DATA_FILE"
+            git commit -m "chore: refresh Pandrol dashboard data"
+
+            if git push origin HEAD:main; then
+              echo "Dashboard data published successfully."
+              exit 0
+            fi
+
+            echo "Main changed during publish; retrying with the latest version."
+          done
+
+          echo "Dashboard publish failed after three attempts."
+          exit 1
