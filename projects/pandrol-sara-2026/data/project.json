@@ -1,68 +1,277 @@
 {
   "schemaVersion": 1,
-  "generatedAt": null,
+  "generatedAt": "2026-08-10T09:34:06.550Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
     "name": "Pandrol SA – SARA Exhibition 2026",
     "eventStart": "2026-10-20T00:00:00+02:00",
-    "eventEnd": "2026-10-23T23:59:59+02:00"
+    "eventEnd": "2026-10-23T23:59:59+02:00",
+    "closeOut": "2026-10-30T17:00:00+02:00"
   },
   "health": {
-    "rag": "neutral",
-    "label": "Sync pending",
-    "summary": "The dashboard is ready for its first secure ClickUp synchronisation."
+    "rag": "green",
+    "label": "On track",
+    "summary": "No critical schedule exception is currently visible in the published project data."
   },
   "phase": {
     "name": "Mobilisation",
-    "description": "Authority, scope, requirements and baselines"
+    "description": "Authority, scope, requirements and baselines",
+    "from": "2026-08-10",
+    "to": "2026-08-23"
   },
   "nextMilestone": {
-    "name": "Scope and schedule baseline",
-    "date": "2026-08-18T17:00:00+02:00"
+    "name": "Formal mobilisation",
+    "date": "2026-08-10T17:00:00+02:00",
+    "complete": false,
+    "overdue": false,
+    "unlinked": true,
+    "note": "Planned date",
+    "state": "next"
   },
   "progress": {
-    "percent": null,
-    "detail": "Awaiting first sync"
+    "percent": 3.6,
+    "detail": "3 of 71 tasks verified complete"
   },
   "clientAttention": [],
   "deliveryKpis": [
-    {"label":"Milestone adherence","value":"—","status":"Sync pending","tone":"neutral","detail":"Critical gates achieved by baseline date"},
-    {"label":"Budget status","value":"Awaiting baseline","status":"Not active","tone":"neutral","detail":"Forecast versus approved budget"},
-    {"label":"Overdue critical actions","value":"—","status":"Sync pending","tone":"neutral","detail":"Urgent incomplete actions past due"},
-    {"label":"Risk exposure","value":"—","status":"Sync pending","tone":"neutral","detail":"Published high and critical exposure"},
-    {"label":"Supplier OTIF","value":"Not active","status":"Future phase","tone":"neutral","detail":"On-time and in-full deliveries"},
-    {"label":"Readiness pass rate","value":"Not active","status":"Future phase","tone":"neutral","detail":"Accepted checks at readiness gates"},
-    {"label":"Change volume","value":"—","status":"Sync pending","tone":"neutral","detail":"Approved and open change requests"},
-    {"label":"Schedule health","value":"—","status":"Sync pending","tone":"neutral","detail":"Open work completed on or before due date"}
+    {
+      "label": "Milestone adherence",
+      "value": "Not yet due",
+      "status": "Future gate",
+      "tone": "neutral",
+      "detail": "0 of 0 due critical gates achieved"
+    },
+    {
+      "label": "Budget status",
+      "value": "Awaiting baseline",
+      "status": "Not baselined",
+      "tone": "neutral",
+      "detail": "Approved budget and forecast not yet published"
+    },
+    {
+      "label": "Overdue critical actions",
+      "value": "0",
+      "status": "Clear",
+      "tone": "green",
+      "detail": "High or urgent incomplete actions past due"
+    },
+    {
+      "label": "Risk exposure",
+      "value": "No published highs",
+      "status": "Controlled",
+      "tone": "green",
+      "detail": "Only explicitly client-visible risks and issues"
+    },
+    {
+      "label": "Supplier OTIF",
+      "value": "Not active",
+      "status": "Future phase",
+      "tone": "neutral",
+      "detail": "Activates when supplier deliveries fall due"
+    },
+    {
+      "label": "Readiness pass rate",
+      "value": "Not active",
+      "status": "Future gate",
+      "tone": "neutral",
+      "detail": "Accepted checks at active readiness gates"
+    },
+    {
+      "label": "Change volume",
+      "value": "0",
+      "status": "Controlled",
+      "tone": "green",
+      "detail": "0 open change requests"
+    },
+    {
+      "label": "Schedule health",
+      "value": "33%",
+      "status": "Recovery",
+      "tone": "red",
+      "detail": "1 of 3 due tasks completed on time"
+    }
   ],
   "milestones": [
-    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","state":"next","note":"Current gate"},
-    {"name":"Scope and schedule baseline","date":"2026-08-18T17:00:00+02:00","state":"upcoming","note":"Planned"},
-    {"name":"Stand dry-build","date":"2026-08-28T17:00:00+02:00","state":"upcoming","note":"Planned"},
-    {"name":"Exhibition-ready go/no-go","date":"2026-10-09T17:00:00+02:00","state":"upcoming","note":"Planned"},
-    {"name":"SARA exhibition","date":"2026-10-20T08:00:00+02:00","state":"upcoming","note":"Event"}
+    {
+      "name": "Formal mobilisation",
+      "date": "2026-08-10T17:00:00+02:00",
+      "complete": false,
+      "overdue": false,
+      "unlinked": true,
+      "note": "Planned date",
+      "state": "next"
+    },
+    {
+      "name": "Scope and schedule baseline",
+      "date": "2026-08-24T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "in progress",
+      "state": "upcoming"
+    },
+    {
+      "name": "Stand dry-build",
+      "date": "2026-08-28T17:00:00+02:00",
+      "complete": false,
+      "overdue": false,
+      "unlinked": true,
+      "note": "Planned date",
+      "state": "upcoming"
+    },
+    {
+      "name": "Stand snags closed",
+      "date": "2026-09-04T17:00:00+02:00",
+      "complete": false,
+      "overdue": false,
+      "unlinked": true,
+      "note": "Planned date",
+      "state": "upcoming"
+    },
+    {
+      "name": "60% readiness review",
+      "date": "2026-09-18T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "awaiting information",
+      "state": "upcoming"
+    },
+    {
+      "name": "Production/content freeze",
+      "date": "2026-09-25T17:00:00+02:00",
+      "complete": false,
+      "overdue": false,
+      "unlinked": true,
+      "note": "Planned date",
+      "state": "upcoming"
+    },
+    {
+      "name": "90% readiness review",
+      "date": "2026-10-02T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "awaiting information",
+      "state": "upcoming"
+    },
+    {
+      "name": "Exhibition-ready go/no-go",
+      "date": "2026-10-09T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "awaiting information",
+      "state": "upcoming"
+    },
+    {
+      "name": "Packing and dispatch complete",
+      "date": "2026-10-16T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "awaiting information",
+      "state": "upcoming"
+    },
+    {
+      "name": "SARA exhibition",
+      "date": "2026-10-23T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "awaiting information",
+      "state": "upcoming"
+    },
+    {
+      "name": "Project close-out",
+      "date": "2026-10-30T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "awaiting information",
+      "state": "upcoming"
+    }
   ],
-  "upcomingDeadlines": [],
+  "upcomingDeadlines": [
+    {
+      "name": "3.1.2 – Obtain Pandrol booking and sponsorship documents",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "awaiting information"
+    },
+    {
+      "name": "3.1.1 – Obtain controlled SARA 2026 exhibitor pack",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "awaiting information"
+    },
+    {
+      "name": "1.1 – Conduct formal project kickoff and confirm mobilisation",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "planning"
+    },
+    {
+      "name": "0.7 – Draft KPI framework and data requirements",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "review / close out"
+    },
+    {
+      "name": "0.8 – Prepare kickoff agenda and consolidated information request",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "review / close out"
+    },
+    {
+      "name": "0.5 – Create project timesheet and payment-support process",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "review / close out"
+    },
+    {
+      "name": "0.6 – Assess ClickUp-to-Teams collaboration and KPI-sharing solution",
+      "dueDate": "2026-08-11T02:00:00.000Z",
+      "status": "review / close out"
+    },
+    {
+      "name": "3.1.4 – Confirm exhibition operating days and hours",
+      "dueDate": "2026-08-12T02:00:00.000Z",
+      "status": "awaiting information"
+    }
+  ],
   "publishedRisksIssues": [],
   "readiness": {
     "percent": null,
     "label": "Not yet active",
-    "note": "Formal readiness measurement activates during stand validation and production."
+    "note": "Formal readiness measurement activates when readiness checks and gates become due."
   },
-  "outcomePhaseNote": "Exhibition and post-event measures are intentionally dormant during mobilisation.",
+  "outcomePhaseNote": "Exhibition and post-event measures are intentionally dormant during delivery.",
   "outcomeGroups": [
     {
       "title": "Exhibition outcomes",
       "active": false,
       "activationLabel": "Opens at event",
       "items": [
-        {"label":"Qualified leads","value":"Not active"},
-        {"label":"Priority-account meetings","value":"Not active"},
-        {"label":"Demonstrations","value":"Not active"},
-        {"label":"Meaningful conversations","value":"Not active"},
-        {"label":"Lead-data completeness","value":"Not active"},
-        {"label":"Stakeholder satisfaction","value":"Not active"}
+        {
+          "label": "Qualified leads",
+          "value": "Not active"
+        },
+        {
+          "label": "Priority-account meetings",
+          "value": "Not active"
+        },
+        {
+          "label": "Demonstrations",
+          "value": "Not active"
+        },
+        {
+          "label": "Meaningful conversations",
+          "value": "Not active"
+        },
+        {
+          "label": "Lead-data completeness",
+          "value": "Not active"
+        },
+        {
+          "label": "Stakeholder satisfaction",
+          "value": "Not active"
+        }
       ]
     },
     {
@@ -70,10 +279,22 @@
       "active": false,
       "activationLabel": "Opens after event",
       "items": [
-        {"label":"Lead handover time","value":"Not active"},
-        {"label":"Follow-up within SLA","value":"Not active"},
-        {"label":"Opportunities created","value":"Not active"},
-        {"label":"Management report turnaround","value":"Not active"}
+        {
+          "label": "Lead handover time",
+          "value": "Not active"
+        },
+        {
+          "label": "Follow-up within SLA",
+          "value": "Not active"
+        },
+        {
+          "label": "Opportunities created",
+          "value": "Not active"
+        },
+        {
+          "label": "Management report turnaround",
+          "value": "Not active"
+        }
       ]
     }
   ]
