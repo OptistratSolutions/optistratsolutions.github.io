@@ -1,0 +1,56 @@
+{
+  "slug": "pandrol-sara-2026",
+  "publicPath": "projects/pandrol-sara-2026",
+  "projectTaskId": "869edm1p7",
+  "listId": "901218737577",
+  "project": {
+    "reference": "PROJ-1360",
+    "name": "Pandrol SA – SARA Exhibition 2026",
+    "eventStart": "2026-10-20T00:00:00+02:00",
+    "eventEnd": "2026-10-23T23:59:59+02:00",
+    "closeOut": "2026-10-30T17:00:00+02:00"
+  },
+  "phaseDates": [
+    {"name":"Mobilisation","description":"Authority, scope, requirements and baselines","from":"2026-08-10","to":"2026-08-23"},
+    {"name":"Stand integration and production","description":"Design integration, supplier coordination and content production","from":"2026-08-24","to":"2026-09-17"},
+    {"name":"Readiness and assurance","description":"Dry-build closure, testing, rehearsal and go/no-go","from":"2026-09-18","to":"2026-10-19"},
+    {"name":"Event delivery","description":"On-site setup, exhibition operations and controlled breakdown","from":"2026-10-20","to":"2026-10-26"},
+    {"name":"Close-out","description":"Lead handover, reconciliation, KPI report and lessons learned","from":"2026-10-27","to":"2026-10-30"}
+  ],
+  "milestones": [
+    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","taskMatch":"formal mobilisation"},
+    {"name":"Scope and schedule baseline","date":"2026-08-18T17:00:00+02:00","taskMatch":"baseline the wbs"},
+    {"name":"Stand dry-build","date":"2026-08-28T17:00:00+02:00","taskMatch":"conduct the complete stand dry-build"},
+    {"name":"Stand snags closed","date":"2026-09-04T17:00:00+02:00","taskMatch":"close and verify all stand snags"},
+    {"name":"60% readiness review","date":"2026-09-18T17:00:00+02:00","taskMatch":"60% integrated readiness review"},
+    {"name":"Production/content freeze","date":"2026-09-25T17:00:00+02:00","taskMatch":"production and content freeze"},
+    {"name":"90% readiness review","date":"2026-10-02T17:00:00+02:00","taskMatch":"90% integrated readiness review"},
+    {"name":"Exhibition-ready go/no-go","date":"2026-10-09T17:00:00+02:00","taskMatch":"exhibition-ready gate"},
+    {"name":"Packing and dispatch complete","date":"2026-10-16T17:00:00+02:00","taskMatch":"pack, dispatch"},
+    {"name":"SARA exhibition","date":"2026-10-20T08:00:00+02:00","taskMatch":"lead exhibition operations"},
+    {"name":"Project close-out","date":"2026-10-30T17:00:00+02:00","taskMatch":"close-out"}
+  ],
+  "publication": {
+    "clientAttentionTags": ["client-attention", "client action", "approval-required", "decision-required", "pandrol-action"],
+    "clientVisibleTags": ["client-visible", "stakeholder-dashboard", "public-dashboard"],
+    "riskTags": ["risk", "issue"],
+    "supplierTags": ["supplier", "delivery", "otif"],
+    "readinessTags": ["readiness", "test", "acceptance"],
+    "changeTags": ["change", "change-request"]
+  },
+  "customFieldAliases": {
+    "budgetApproved": ["approved budget", "budget baseline", "total budget"],
+    "budgetForecast": ["forecast at completion", "budget forecast", "forecast cost"],
+    "readinessPercent": ["readiness score", "readiness percent", "integrated readiness"],
+    "qualifiedLeads": ["qualified leads"],
+    "priorityMeetings": ["priority-account meetings", "priority account meetings"],
+    "demonstrations": ["demonstrations", "demos completed"],
+    "meaningfulConversations": ["meaningful conversations"],
+    "leadCompleteness": ["lead-data completeness", "lead data completeness"],
+    "stakeholderSatisfaction": ["stakeholder satisfaction"],
+    "leadHandoverHours": ["lead handover time", "lead handover hours"],
+    "followUpSla": ["follow-up within sla", "follow up within sla"],
+    "opportunitiesCreated": ["opportunities created"],
+    "reportTurnaroundDays": ["management report turnaround", "report turnaround days"]
+  }
+}
