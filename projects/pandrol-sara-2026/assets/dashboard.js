@@ -61,7 +61,7 @@ function renderAttention(items = []) {
   list.innerHTML = items.map((item) => `
     <article class="attention-item">
       <span class="status-chip status-${toneClass(item.tone)}">${escapeHtml(item.type || "Action")}</span>
-      <div><strong>${escapeHtml(item.name)}</strong></div>
+      <div><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.owner || "Owner not assigned")}</small></div>
       <span class="deadline-date">${escapeHtml(item.dueDate ? formatDate(item.dueDate) : "No due date")}</span>
     </article>`).join("");
 }
@@ -130,21 +130,6 @@ function renderReadiness(readiness = {}) {
   qs("#readiness-ring").style.background = `conic-gradient(var(--cyan-500) ${percent * 3.6}deg, var(--slate-100) 0deg)`;
 }
 
-function renderOutcomes(groups = [], note) {
-  setText("#outcome-phase-note", note || "These measures activate when the relevant project phase begins.");
-  const host = qs("#outcome-groups");
-  host.innerHTML = groups.map((group) => `
-    <article class="outcome-group ${group.active ? "" : "is-inactive"}">
-      <div class="outcome-group-header">
-        <h3>${escapeHtml(group.title)}</h3>
-        <span class="status-chip status-${group.active ? "blue" : "neutral"}">${group.active ? "Active" : escapeHtml(group.activationLabel || "Future phase")}</span>
-      </div>
-      <div class="outcome-list">
-        ${(group.items || []).map((item) => `<div class="outcome-row"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value ?? "—")}</strong></div>`).join("")}
-      </div>
-    </article>`).join("");
-}
-
 function renderUpdated(value) {
   if (!value) return;
   const formatted = new Intl.DateTimeFormat("en-ZA", {
@@ -165,7 +150,6 @@ function render(data) {
   renderDeadlines(data.upcomingDeadlines);
   renderRisks(data.publishedRisksIssues);
   renderReadiness(data.readiness);
-  renderOutcomes(data.outcomeGroups, data.outcomePhaseNote);
   renderUpdated(data.generatedAt);
 }
 
