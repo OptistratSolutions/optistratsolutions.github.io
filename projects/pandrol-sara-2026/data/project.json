@@ -1,18 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T05:46:11.279Z",
+  "generatedAt": "2026-08-12T06:04:51.237Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
     "name": "Pandrol SA – SARA Exhibition 2026",
+    "utcOffsetMinutes": 120,
     "eventStart": "2026-10-20T00:00:00+02:00",
     "eventEnd": "2026-10-23T23:59:59+02:00",
     "closeOut": "2026-10-30T17:00:00+02:00"
   },
   "health": {
-    "rag": "red",
-    "label": "Intervention required",
-    "summary": "3 overdue high-priority actions require recovery or an approved rebaseline."
+    "rag": "green",
+    "label": "On track",
+    "summary": "No critical schedule exception is currently visible in the published project data."
   },
   "phase": {
     "name": "Mobilisation",
@@ -21,13 +22,13 @@
     "to": "2026-08-23"
   },
   "nextMilestone": {
-    "name": "Formal mobilisation",
-    "date": "2026-08-10T17:00:00+02:00",
+    "name": "Scope and schedule baseline",
+    "date": "2026-08-24T02:00:00.000Z",
     "complete": false,
     "overdue": false,
-    "unlinked": true,
-    "note": "Planned date",
-    "state": "upcoming"
+    "unlinked": false,
+    "note": "in progress",
+    "state": "next"
   },
   "progress": {
     "percent": 10.6,
@@ -56,10 +57,10 @@
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
-      "value": "0%",
-      "status": "Below target",
-      "tone": "red",
-      "detail": "0 of 1 due critical gates achieved"
+      "value": "100%",
+      "status": "On target",
+      "tone": "green",
+      "detail": "1 of 1 due critical gates achieved"
     },
     {
       "label": "Budget status",
@@ -70,9 +71,9 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "3",
-      "status": "Action",
-      "tone": "red",
+      "value": "0",
+      "status": "Clear",
+      "tone": "green",
       "detail": "High or urgent incomplete actions past due"
     },
     {
@@ -91,9 +92,9 @@
     },
     {
       "label": "Readiness pass rate",
-      "value": "40%",
-      "status": "Building",
-      "tone": "red",
+      "value": "Not active",
+      "status": "Future gate",
+      "tone": "neutral",
       "detail": "Accepted checks at active readiness gates"
     },
     {
@@ -105,21 +106,21 @@
     },
     {
       "label": "Schedule health",
-      "value": "43%",
-      "status": "Recovery",
-      "tone": "red",
-      "detail": "6 of 14 due tasks completed on time"
+      "value": "100%",
+      "status": "On target",
+      "tone": "green",
+      "detail": "8 of 8 due tasks completed on time"
     }
   ],
   "milestones": [
     {
       "name": "Formal mobilisation",
-      "date": "2026-08-10T17:00:00+02:00",
-      "complete": false,
+      "date": "2026-08-11T02:00:00.000Z",
+      "complete": true,
       "overdue": false,
-      "unlinked": true,
-      "note": "Planned date",
-      "state": "upcoming"
+      "unlinked": false,
+      "note": "Achieved",
+      "state": "complete"
     },
     {
       "name": "Scope and schedule baseline",
@@ -132,20 +133,20 @@
     },
     {
       "name": "Stand dry-build",
-      "date": "2026-08-28T17:00:00+02:00",
+      "date": "2026-08-28T02:00:00.000Z",
       "complete": false,
       "overdue": false,
-      "unlinked": true,
-      "note": "Planned date",
+      "unlinked": false,
+      "note": "planning",
       "state": "upcoming"
     },
     {
       "name": "Stand snags closed",
-      "date": "2026-09-04T17:00:00+02:00",
+      "date": "2026-09-04T02:00:00.000Z",
       "complete": false,
       "overdue": false,
-      "unlinked": true,
-      "note": "Planned date",
+      "unlinked": false,
+      "note": "planning",
       "state": "upcoming"
     },
     {
@@ -159,11 +160,11 @@
     },
     {
       "name": "Production/content freeze",
-      "date": "2026-09-25T17:00:00+02:00",
+      "date": "2026-09-25T02:00:00.000Z",
       "complete": false,
       "overdue": false,
-      "unlinked": true,
-      "note": "Planned date",
+      "unlinked": false,
+      "note": "awaiting information",
       "state": "upcoming"
     },
     {
@@ -214,6 +215,21 @@
   ],
   "upcomingDeadlines": [
     {
+      "name": "3.1.4 – Confirm exhibition operating days and hours",
+      "dueDate": "2026-08-12T02:00:00.000Z",
+      "status": "in progress"
+    },
+    {
+      "name": "3.1.5 – Confirm build-up, access and breakdown windows",
+      "dueDate": "2026-08-12T02:00:00.000Z",
+      "status": "in progress"
+    },
+    {
+      "name": "3.1.3 – Confirm stand number, hall, size and stand type",
+      "dueDate": "2026-08-12T02:00:00.000Z",
+      "status": "in progress"
+    },
+    {
       "name": "2.12.1 – Create internal marketing deliverables schedule",
       "dueDate": "2026-08-14T02:00:00.000Z",
       "status": "in progress"
@@ -237,84 +253,12 @@
       "name": "3.6.1 – Compile guest/delegate list and confirm Gala Dinner places",
       "dueDate": "2026-08-17T02:00:00.000Z",
       "status": "awaiting client"
-    },
-    {
-      "name": "3.6.2 – Confirm France visitor travel and presenter logistics",
-      "dueDate": "2026-08-17T02:00:00.000Z",
-      "status": "awaiting client"
-    },
-    {
-      "name": "3.1.7 – Complete controlled organiser requirements register",
-      "dueDate": "2026-08-17T02:00:00.000Z",
-      "status": "planning"
-    },
-    {
-      "name": "2.6 – Select products, materials and demonstrations for showcase",
-      "dueDate": "2026-08-17T02:00:00.000Z",
-      "status": "awaiting client"
     }
   ],
   "publishedRisksIssues": [],
   "readiness": {
-    "percent": 40,
-    "label": "Recovery required",
-    "note": "2 of 5 due readiness checks passed."
-  },
-  "outcomePhaseNote": "Exhibition and post-event measures are intentionally dormant during delivery.",
-  "outcomeGroups": [
-    {
-      "title": "Exhibition outcomes",
-      "active": false,
-      "activationLabel": "Opens at event",
-      "items": [
-        {
-          "label": "Qualified leads",
-          "value": "Not active"
-        },
-        {
-          "label": "Priority-account meetings",
-          "value": "Not active"
-        },
-        {
-          "label": "Demonstrations",
-          "value": "Not active"
-        },
-        {
-          "label": "Meaningful conversations",
-          "value": "Not active"
-        },
-        {
-          "label": "Lead-data completeness",
-          "value": "Not active"
-        },
-        {
-          "label": "Stakeholder satisfaction",
-          "value": "Not active"
-        }
-      ]
-    },
-    {
-      "title": "Post-event conversion",
-      "active": false,
-      "activationLabel": "Opens after event",
-      "items": [
-        {
-          "label": "Lead handover time",
-          "value": "Not active"
-        },
-        {
-          "label": "Follow-up within SLA",
-          "value": "Not active"
-        },
-        {
-          "label": "Opportunities created",
-          "value": "Not active"
-        },
-        {
-          "label": "Management report turnaround",
-          "value": "Not active"
-        }
-      ]
-    }
-  ]
+    "percent": null,
+    "label": "Not yet active",
+    "note": "Formal readiness measurement activates when readiness checks and gates become due."
+  }
 }
