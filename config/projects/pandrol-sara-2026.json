@@ -6,6 +6,7 @@
   "project": {
     "reference": "PROJ-1360",
     "name": "Pandrol SA – SARA Exhibition 2026",
+    "utcOffsetMinutes": 120,
     "eventStart": "2026-10-20T00:00:00+02:00",
     "eventEnd": "2026-10-23T23:59:59+02:00",
     "closeOut": "2026-10-30T17:00:00+02:00"
@@ -18,17 +19,17 @@
     {"name":"Close-out","description":"Lead handover, reconciliation, KPI report and lessons learned","from":"2026-10-27","to":"2026-10-30"}
   ],
   "milestones": [
-    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","taskMatch":"sponsor kickoff"},
-    {"name":"Scope and schedule baseline","date":"2026-08-18T17:00:00+02:00","taskMatch":"baseline the wbs"},
-    {"name":"Stand dry-build","date":"2026-08-28T17:00:00+02:00","taskMatch":"conduct the complete stand dry-build"},
-    {"name":"Stand snags closed","date":"2026-09-04T17:00:00+02:00","taskMatch":"close and verify all stand snags"},
-    {"name":"60% readiness review","date":"2026-09-18T17:00:00+02:00","taskMatch":"60% integrated readiness review"},
-    {"name":"Production/content freeze","date":"2026-09-25T17:00:00+02:00","taskMatch":"production and content freeze"},
-    {"name":"90% readiness review","date":"2026-10-02T17:00:00+02:00","taskMatch":"90% integrated readiness review"},
-    {"name":"Exhibition-ready go/no-go","date":"2026-10-09T17:00:00+02:00","taskMatch":"exhibition-ready gate"},
-    {"name":"Packing and dispatch complete","date":"2026-10-16T17:00:00+02:00","taskMatch":"pack, dispatch"},
-    {"name":"SARA exhibition","date":"2026-10-20T08:00:00+02:00","taskMatch":"lead exhibition operations"},
-    {"name":"Project close-out","date":"2026-10-30T17:00:00+02:00","taskMatch":"close-out"}
+    {"name":"Formal mobilisation","date":"2026-08-10T17:00:00+02:00","taskId":"869edm838","taskMatch":["formal project kickoff","confirm mobilisation"]},
+    {"name":"Scope and schedule baseline","date":"2026-08-18T17:00:00+02:00","taskId":"869edm8re","taskMatch":["baseline the wbs","master schedule and milestones"]},
+    {"name":"Stand dry-build","date":"2026-08-28T17:00:00+02:00","taskId":"869edm9ky","taskMatch":["stand pre-assembly and snag inspection","complete stand dry-build"]},
+    {"name":"Stand snags closed","date":"2026-09-04T17:00:00+02:00","taskId":"869edm9ja","taskMatch":["close stand snags","verify all stand snags"]},
+    {"name":"60% readiness review","date":"2026-09-18T17:00:00+02:00","taskId":"869edmceb","taskMatch":"60% integrated readiness review"},
+    {"name":"Production/content freeze","date":"2026-09-25T17:00:00+02:00","taskId":"869edmc7d","taskMatch":"production/content freeze"},
+    {"name":"90% readiness review","date":"2026-10-02T17:00:00+02:00","taskId":"869edmdpb","taskMatch":"90% integrated readiness review"},
+    {"name":"Exhibition-ready go/no-go","date":"2026-10-09T17:00:00+02:00","taskId":"869ee0gyh","taskMatch":["exhibition-ready gate","go/no-go"]},
+    {"name":"Packing and dispatch complete","date":"2026-10-16T17:00:00+02:00","taskId":"869ee0gz6","taskMatch":["pack, dispatch","site-delivery readiness"]},
+    {"name":"SARA exhibition","date":"2026-10-20T08:00:00+02:00","taskId":"869ee0h0h","taskMatch":"lead exhibition operations"},
+    {"name":"Project close-out","date":"2026-10-30T17:00:00+02:00","taskId":"869edmd68","taskMatch":["formal close-out","project close-out"]}
   ],
   "publication": {
     "clientAttentionTags": ["client-attention", "client action", "approval-required", "decision-required", "pandrol-action"],
