@@ -20,7 +20,32 @@ const statusName = (task) => normalized(task.status?.status || task.status || ""
 const isDone = (task) => ["done", "closed", "complete", "completed"].includes(normalized(task.status?.type)) || ["done", "closed", "complete", "completed"].includes(statusName(task));
 const dateIso = (value) => value ? new Date(Number.isFinite(Number(value)) ? Number(value) : value).toISOString() : null;
 const dateMs = (value) => value ? new Date(Number.isFinite(Number(value)) ? Number(value) : value).getTime() : null;
-const now = new Date();
+const now = new Date(process.env.SYNC_NOW || Date.now());
+const projectUtcOffsetMinutes = Number(config.project.utcOffsetMinutes ?? 120);
+const projectOffsetMs = projectUtcOffsetMinutes * 60 * 1000;
+
+function projectDateKey(value) {
+  const milliseconds = value instanceof Date ? value.getTime() : dateMs(value);
+  if (!Number.isFinite(milliseconds)) return null;
+  return new Date(milliseconds + projectOffsetMs).toISOString().slice(0, 10);
+}
+
+function projectDayNumber(value) {
+  const key = projectDateKey(value);
+  return key ? Math.floor(Date.parse(`${key}T00:00:00Z`) / 86400000) : null;
+}
+
+const todayKey = projectDateKey(now);
+const todayDay = projectDayNumber(now);
+const isPastProjectDay = (value) => {
+  const key = projectDateKey(value);
+  return key !== null && key < todayKey;
+};
+const completedOnOrBeforeDueDay = (task) => {
+  if (!isDone(task)) return false;
+  const completed = task.date_done || task.date_closed;
+  return !completed || projectDateKey(completed) <= projectDateKey(task.due_date);
+};
 
 async function api(path) {
   const response = await fetch(`${API_ROOT}${path}`, {
@@ -95,9 +120,8 @@ function toneForPercent(value, green = 90, amber = 75) {
 }
 
 function projectPhase() {
-  const today = now.toISOString().slice(0, 10);
-  return config.phaseDates.find((phase) => today >= phase.from && today <= phase.to)
-    || (today < config.phaseDates[0].from
+  return config.phaseDates.find((phase) => todayKey >= phase.from && todayKey <= phase.to)
+    || (todayKey < config.phaseDates[0].from
       ? {name: "Pre-start readiness", description: "Pre-mobilisation preparation"}
       : {name: "Closed", description: "Project delivery period complete"});
 }
@@ -115,11 +139,13 @@ function taskProgress(tasks) {
 
 function buildMilestones(tasks) {
   const milestones = config.milestones.map((item) => {
-    const match = tasks.find((task) => normalized(task.name).includes(normalized(item.taskMatch)));
+    const aliases = Array.isArray(item.taskMatch) ? item.taskMatch : [item.taskMatch].filter(Boolean);
+    const match = tasks.find((task) => String(task.id) === String(item.taskId))
+      || tasks.find((task) => aliases.some((alias) => normalized(task.name).includes(normalized(alias))));
     const date = dateIso(match?.due_date) || item.date;
     const complete = match ? isDone(match) : false;
     const unlinked = !match;
-    const overdue = !complete && !unlinked && new Date(date) < now;
+    const overdue = !complete && !unlinked && isPastProjectDay(date);
     return {
       name: item.name,
       date,
@@ -129,7 +155,7 @@ function buildMilestones(tasks) {
       note: complete ? "Achieved" : overdue ? "Overdue" : match ? match.status?.status || "Planned" : "Planned date"
     };
   }).sort((a, b) => new Date(a.date) - new Date(b.date));
-  const nextIndex = milestones.findIndex((item) => !item.complete && (!item.unlinked || new Date(item.date) >= now));
+  const nextIndex = milestones.findIndex((item) => !item.complete && (!item.unlinked || !isPastProjectDay(item.date)));
   return milestones.map((item, index) => ({
     ...item,
     state: item.complete ? "complete" : index === nextIndex ? "next" : "upcoming"
@@ -140,12 +166,6 @@ function currency(value) {
   return new Intl.NumberFormat("en-ZA", {style: "currency", currency: "ZAR", maximumFractionDigits: 0}).format(value);
 }
 
-function metricValue(task, key, suffix = "") {
-  const value = findField(task, config.customFieldAliases[key]);
-  if (value === null) return "Awaiting data";
-  return `${value}${suffix}`;
-}
-
 const parentTask = await api(`/task/${config.projectTaskId}`);
 const allTasks = await getListTasks(config.listId);
 const tasks = selectProjectTree(allTasks, config.projectTaskId);
@@ -154,7 +174,7 @@ const nextMilestone = milestones.find((item) => !item.complete) || null;
 const phase = projectPhase();
 const progress = taskProgress(tasks);
 const openTasks = tasks.filter((task) => !isDone(task));
-const overdue = openTasks.filter((task) => dateMs(task.due_date) && dateMs(task.due_date) < now.getTime());
+const overdue = openTasks.filter((task) => isPastProjectDay(task.due_date));
 const overdueCritical = overdue.filter((task) => ["urgent", "high"].includes(normalized(task.priority?.priority || task.priority)));
 const attention = openTasks
   .filter((task) => includesAny(tagsOf(task), config.publication.clientAttentionTags))
@@ -164,7 +184,7 @@ const attention = openTasks
     name: task.name,
     type: tagsOf(task).includes("approval required") ? "Approval" : tagsOf(task).includes("decision required") ? "Decision" : "Action",
     dueDate: dateIso(task.due_date),
-    tone: dateMs(task.due_date) && dateMs(task.due_date) < now.getTime() ? "red" : "amber"
+    tone: isPastProjectDay(task.due_date) ? "red" : "amber"
   }));
 
 const publishedRisksIssues = openTasks
@@ -179,20 +199,20 @@ const publishedRisksIssues = openTasks
     tone: ["urgent", "high"].includes(normalized(task.priority?.priority)) ? "red" : "amber"
   }));
 
-const dueTasks = tasks.filter((task) => dateMs(task.due_date) && dateMs(task.due_date) <= now.getTime());
-const onTimeDue = dueTasks.filter((task) => isDone(task) && (!dateMs(task.date_done || task.date_closed) || dateMs(task.date_done || task.date_closed) <= dateMs(task.due_date)));
+const dueTasks = tasks.filter((task) => isPastProjectDay(task.due_date));
+const onTimeDue = dueTasks.filter(completedOnOrBeforeDueDay);
 const scheduleAdherence = dueTasks.length ? Math.round((onTimeDue.length / dueTasks.length) * 100) : null;
-const dueMilestones = milestones.filter((item) => new Date(item.date) <= now);
+const dueMilestones = milestones.filter((item) => isPastProjectDay(item.date));
 const onTimeMilestones = dueMilestones.filter((item) => item.complete);
 const milestoneAdherence = dueMilestones.length ? Math.round((onTimeMilestones.length / dueMilestones.length) * 100) : null;
 
 const supplierTasks = tasks.filter((task) => includesAny(tagsOf(task), config.publication.supplierTags));
-const supplierDue = supplierTasks.filter((task) => dateMs(task.due_date) && dateMs(task.due_date) <= now.getTime());
-const supplierOnTime = supplierDue.filter((task) => isDone(task) && dateMs(task.date_done || task.date_closed) <= dateMs(task.due_date));
+const supplierDue = supplierTasks.filter((task) => isPastProjectDay(task.due_date));
+const supplierOnTime = supplierDue.filter(completedOnOrBeforeDueDay);
 const supplierOtif = supplierDue.length ? Math.round((supplierOnTime.length / supplierDue.length) * 100) : null;
 
-const readinessTasks = tasks.filter((task) => includesAny(tagsOf(task), config.publication.readinessTags) || /^3\./.test(task.name || ""));
-const readinessDue = readinessTasks.filter((task) => dateMs(task.due_date) && dateMs(task.due_date) <= now.getTime());
+const readinessTasks = tasks.filter((task) => includesAny(tagsOf(task), config.publication.readinessTags));
+const readinessDue = readinessTasks.filter((task) => isPastProjectDay(task.due_date));
 const readinessCalculated = readinessDue.length ? Math.round((readinessDue.filter(isDone).length / readinessDue.length) * 100) : null;
 const readinessCustom = numberValue(findField(parentTask, config.customFieldAliases.readinessPercent));
 const readinessPercent = readinessCustom ?? readinessCalculated;
@@ -218,15 +238,15 @@ if (overdueCritical.length || nextMilestone?.overdue) {
   healthSummary = `${overdue.length} overdue action${overdue.length === 1 ? "" : "s"} are being controlled; client decisions are shown below where applicable.`;
 }
 
-const twoWeeks = now.getTime() + 14 * 86400000;
 const upcomingDeadlines = openTasks
-  .filter((task) => dateMs(task.due_date) && dateMs(task.due_date) >= now.getTime() && dateMs(task.due_date) <= twoWeeks)
+  .filter((task) => {
+    const dueDay = projectDayNumber(task.due_date);
+    return dueDay !== null && dueDay >= todayDay && dueDay <= todayDay + 14;
+  })
   .sort((a, b) => dateMs(a.due_date) - dateMs(b.due_date))
   .slice(0, 8)
   .map((task) => ({name: task.name, dueDate: dateIso(task.due_date), status: task.status?.status || "Open"}));
 
-const eventActive = now >= new Date(config.project.eventStart) && now <= new Date(config.project.eventEnd);
-const postEventActive = now > new Date(config.project.eventEnd);
 const snapshot = {
   schemaVersion: 1,
   generatedAt: now.toISOString(),
@@ -257,34 +277,7 @@ const snapshot = {
     percent: readinessPercent,
     label: readinessPercent >= 90 ? "Ready for current gate" : readinessPercent >= 60 ? "Building to gate" : "Recovery required",
     note: `${readinessDue.filter(isDone).length} of ${readinessDue.length} due readiness checks passed.`
-  },
-  outcomePhaseNote: eventActive ? "Event measures are live and update from approved ClickUp fields." : postEventActive ? "Post-event conversion measures are active." : "Exhibition and post-event measures are intentionally dormant during delivery.",
-  outcomeGroups: [
-    {
-      title: "Exhibition outcomes",
-      active: eventActive || postEventActive,
-      activationLabel: "Opens at event",
-      items: [
-        {label: "Qualified leads", value: eventActive || postEventActive ? metricValue(parentTask, "qualifiedLeads") : "Not active"},
-        {label: "Priority-account meetings", value: eventActive || postEventActive ? metricValue(parentTask, "priorityMeetings") : "Not active"},
-        {label: "Demonstrations", value: eventActive || postEventActive ? metricValue(parentTask, "demonstrations") : "Not active"},
-        {label: "Meaningful conversations", value: eventActive || postEventActive ? metricValue(parentTask, "meaningfulConversations") : "Not active"},
-        {label: "Lead-data completeness", value: eventActive || postEventActive ? metricValue(parentTask, "leadCompleteness", "%") : "Not active"},
-        {label: "Stakeholder satisfaction", value: eventActive || postEventActive ? metricValue(parentTask, "stakeholderSatisfaction") : "Not active"}
-      ]
-    },
-    {
-      title: "Post-event conversion",
-      active: postEventActive,
-      activationLabel: "Opens after event",
-      items: [
-        {label: "Lead handover time", value: postEventActive ? metricValue(parentTask, "leadHandoverHours", " h") : "Not active"},
-        {label: "Follow-up within SLA", value: postEventActive ? metricValue(parentTask, "followUpSla", "%") : "Not active"},
-        {label: "Opportunities created", value: postEventActive ? metricValue(parentTask, "opportunitiesCreated") : "Not active"},
-        {label: "Management report turnaround", value: postEventActive ? metricValue(parentTask, "reportTurnaroundDays", " days") : "Not active"}
-      ]
-    }
-  ]
+  }
 };
 
 const outputPath = resolve(ROOT, config.publicPath, "data/project.json");
