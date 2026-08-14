@@ -110,14 +110,18 @@ a { color: inherit; }
 
 .pandrol-lockup {
   padding: 0;
-  background: transparent;
+  width: 185px;
+  height: 56px;
+  background-color: transparent;
+  background-image: url("./pandrol-logo-yellow.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .25));
 }
 
 .pandrol-lockup img {
-  display: block;
-  width: 185px;
-  height: auto;
-  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .25));
+  display: none;
 }
 
 .identity-rule {
@@ -538,7 +542,7 @@ input[type="radio"] {
     padding: 12px 14px;
   }
 
-  .pandrol-lockup img { width: 142px; }
+  .pandrol-lockup { width: 142px; height: 44px; }
   .identity-rule { height: 40px; }
   .sara-lockup img { width: 58px; max-height: 52px; }
   .venue-label { font-size: .7rem; }
@@ -571,7 +575,7 @@ input[type="radio"] {
 }
 
 @media (max-width: 430px) {
-  .pandrol-lockup img { width: 124px; }
+  .pandrol-lockup { width: 124px; height: 39px; }
   .identity-lockup { gap: 12px; }
   .sara-lockup img { width: 48px; }
   .registration-heading { padding-inline: 20px; }
