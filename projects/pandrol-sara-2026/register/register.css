@@ -292,8 +292,8 @@ h2 {
 .clickup-form {
   display: block;
   width: 100%;
-  height: 1600px;
-  margin-top: -250px;
+  height: 1655px;
+  margin-top: -305px;
   border: 0;
   background: var(--white);
 }
@@ -424,8 +424,8 @@ h2 {
 
   .clickup-form {
     width: 116%;
-    height: 1720px;
-    margin-top: -235px;
+    height: 1775px;
+    margin-top: -290px;
     margin-left: -8%;
   }
 
