@@ -2,6 +2,8 @@
   "use strict";
 
   const FORM_ENDPOINT = "https://prod-eu-west-1-2.clickup.com/ui/v3/workspaces/9005033045/forms/8cbvtjn-18772/submit?token=BWBAH4JYH9D82XWGOG&ngsw-bypass=true";
+  const HOME_URL = "./";
+  const RETURN_DELAY_MS = 3500;
   const startedAt = Date.now();
   const fieldIds = {
     firstName: "6c89ace3-8193-47e9-93ed-8a0e8019121f",
@@ -79,6 +81,7 @@
     successPanel.hidden = false;
     successPanel.focus();
     successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => window.location.replace(HOME_URL), RETURN_DELAY_MS);
   };
 
   form.addEventListener("input", (event) => {
@@ -121,13 +124,6 @@
   });
 
   newEntryButton.addEventListener("click", () => {
-    form.reset();
-    form.hidden = false;
-    successPanel.hidden = true;
-    servicesError.textContent = "";
-    status.textContent = "";
-    form.querySelectorAll('[aria-invalid="true"]').forEach((control) => control.setAttribute("aria-invalid", "false"));
-    document.querySelector("#first-name").focus();
-    form.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.location.replace(HOME_URL);
   });
 })();
