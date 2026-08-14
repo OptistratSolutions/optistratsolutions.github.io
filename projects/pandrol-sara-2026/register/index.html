@@ -8,11 +8,11 @@
   <meta name="theme-color" content="#001e45">
   <title>Connect with Pandrol South Africa | SARA 2026</title>
   <link rel="icon" href="https://www.pandrol.com/wp-content/themes/pandrol/images/favicon-32x32.png">
-  <link rel="stylesheet" href="./register.css?v=20260814-3">
+  <link rel="stylesheet" href="./register.css?v=20260814-4">
+  <script src="./register.js?v=20260814-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#visitor-form">Skip to visitor form</a>
-
   <main class="experience">
     <div class="image-layer" aria-hidden="true"></div>
     <div class="colour-layer" aria-hidden="true"></div>
@@ -27,63 +27,91 @@
           <img src="https://www.sararailconference.com/wp-content/uploads/2026/07/SARA-30-Year-Anniversary-LOGO.svg" alt="SARA 30 year anniversary">
         </a>
       </div>
-
-      <div class="stand-marker">
-        <span>Sandton Convention Centre</span>
-        <strong>Stand 39</strong>
-      </div>
+      <div class="stand-marker"><span>Sandton Convention Centre</span><strong>Stand 39</strong></div>
     </header>
 
-    <div class="experience-grid">
-      <section class="brand-story" aria-labelledby="welcome-title">
-        <p class="kicker">Pandrol South Africa · SARA 2026</p>
-        <h1 id="welcome-title">Your rail challenge.<br><span>Our expertise.</span></h1>
-        <p class="brand-intro">Connect with the Pandrol team about safer installation, stronger infrastructure and better lifecycle performance.</p>
+    <section class="hero-copy" aria-labelledby="welcome-title">
+      <p class="kicker">Pandrol South Africa · SARA 2026</p>
+      <h1 id="welcome-title">Your rail challenge. <span>Our expertise.</span></h1>
+      <p>Tell us what matters to your operation. We’ll connect your enquiry with the right Pandrol expertise.</p>
+    </section>
 
-        <div class="event-summary" aria-label="Event details">
-          <div>
-            <span>Conference &amp; Exhibition</span>
-            <strong>20–23 October 2026</strong>
+    <section class="registration-card" aria-labelledby="form-heading">
+      <div class="registration-heading">
+        <p class="kicker">Visitor registration</p>
+        <h2 id="form-heading">Connect with Pandrol South Africa</h2>
+        <p>Complete your details and select the products or services relevant to your operation.</p>
+      </div>
+
+      <form id="visitor-form" novalidate>
+        <div class="form-grid">
+          <div class="field-group"><label for="first-name">First name <span aria-hidden="true">*</span></label><input id="first-name" name="firstName" type="text" autocomplete="given-name" required></div>
+          <div class="field-group"><label for="surname">Surname <span aria-hidden="true">*</span></label><input id="surname" name="surname" type="text" autocomplete="family-name" required></div>
+          <div class="field-group"><label for="company">Company <span aria-hidden="true">*</span></label><input id="company" name="company" type="text" autocomplete="organization" required></div>
+          <div class="field-group"><label for="job-title">Job title / role <span aria-hidden="true">*</span></label><input id="job-title" name="jobTitle" type="text" autocomplete="organization-title" required></div>
+          <div class="field-group">
+            <label for="telephone">Telephone / WhatsApp <span aria-hidden="true">*</span></label>
+            <div class="phone-control"><span class="country-code" aria-label="South Africa country code">+27</span><input id="telephone" name="telephone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="82 123 4567" aria-describedby="phone-help" required></div>
+            <small id="phone-help">South Africa is selected by default.</small>
           </div>
-          <div>
-            <span>Locally supported</span>
-            <strong>Global rail expertise</strong>
+          <div class="field-group"><label for="email">Email address <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
+        </div>
+
+        <fieldset class="interest-fieldset">
+          <legend>Services of interest <span aria-hidden="true">*</span></legend>
+          <p>Select all that apply.</p>
+          <div class="interest-grid">
+            <label class="choice-card"><input type="checkbox" name="services" value="1872304e-c892-467c-aa3b-9a2a43e9a13a"><span>Aluminothermic welding and rail repair</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="6f528347-232a-46b4-97a3-d9a358db7098"><span>Welding equipment, tools and consumables</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="47e1792c-3298-473c-92e8-0c47cc357d67"><span>Rail fastening systems</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="4f4a0f91-a835-40f6-bbe2-273c05083792"><span>Anti-theft and anti-sabotage solutions</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="18a4f3df-1c31-47b8-8f4a-71d0db87a1f1"><span>Track measurement and ultrasonic testing</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="35165f06-493e-4bd3-bd68-1094cba484a9"><span>Rail stress measurement and management</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="cd6e0de9-8bfb-40eb-b28a-01ca3a4c7fac"><span>Installation and maintenance equipment</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="3ddbcbe3-ac65-49ff-b7aa-c539b45de520"><span>On-track services, training and commissioning</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="78960bee-bb12-4e72-a493-80d9d8916b5c"><span>After-sales and technical support</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="1a0fd9d5-75fe-47de-86cb-bfba50cc7b76"><span>Other or a specific rail challenge</span></label>
           </div>
-        </div>
-      </section>
+          <p class="field-error" id="services-error" role="alert"></p>
+        </fieldset>
 
-      <section class="registration-card" aria-labelledby="form-heading">
-        <div class="registration-heading">
-          <div>
-            <p class="kicker">Visitor registration</p>
-            <h2 id="form-heading">Connect with Pandrol</h2>
+        <div class="field-group field-wide">
+          <label for="challenge">Requirement or rail challenge <span class="optional">Optional</span></label>
+          <textarea id="challenge" name="challenge" rows="4" placeholder="Tell us briefly what you would like to discuss."></textarea>
+        </div>
+
+        <fieldset class="contact-fieldset">
+          <legend>Preferred contact method <span aria-hidden="true">*</span></legend>
+          <div class="contact-options">
+            <label><input type="radio" name="contactMethod" value="b3113a35-bdb8-4670-89b4-9e31ff1b1831" required><span>Email</span></label>
+            <label><input type="radio" name="contactMethod" value="85310178-d54b-4eea-adcf-0f05d5080352"><span>Telephone call</span></label>
+            <label><input type="radio" name="contactMethod" value="dfe86aba-e9d2-411c-baa3-e80d93d67595"><span>WhatsApp</span></label>
           </div>
-          <p>Complete your details and select the products or services relevant to your operation.</p>
-        </div>
+        </fieldset>
 
-        <div class="form-viewport" id="visitor-form">
-          <iframe
-            class="clickup-form"
-            src="https://forms.clickup.com/9005033045/f/8cbvtjn-18772/BWBAH4JYH9D82XWGOG?Telephone%20%2F%20WhatsApp=%2B27%20"
-            title="Pandrol South Africa SARA 2026 visitor registration form"
-            loading="eager"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="clipboard-write"
-            scrolling="no"
-          ></iframe>
-        </div>
+        <label class="consent-row">
+          <input type="checkbox" name="consent" required>
+          <span>I consent to Pandrol South Africa collecting and using my details to contact me about the products and services selected. I understand that I may withdraw my consent at any time. <a href="https://www.pandrol.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy policy</a>.</span>
+        </label>
 
-        <div class="registration-meta">
-          <p><span class="secure-dot" aria-hidden="true"></span>Your details are handled in line with the consent provided in this form.</p>
-          <a href="https://forms.clickup.com/9005033045/f/8cbvtjn-18772/BWBAH4JYH9D82XWGOG?Telephone%20%2F%20WhatsApp=%2B27%20" target="_blank" rel="noopener noreferrer">Open form separately</a>
-        </div>
-      </section>
-    </div>
+        <div class="honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 
-    <footer class="event-footer">
-      <span>Pandrol South Africa</span>
-      <a href="../">Project dashboard</a>
-    </footer>
+        <div class="submit-row">
+          <p><span class="secure-dot" aria-hidden="true"></span>Your information is collected securely and used only in line with the consent provided.</p>
+          <button class="submit-button" type="submit"><span>Submit details</span></button>
+        </div>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="success-panel" id="success-panel" hidden tabindex="-1">
+        <p class="kicker">Details received</p>
+        <h2>Thank you for connecting with Pandrol.</h2>
+        <p>Your information has been submitted. Please return the tablet to a Pandrol representative.</p>
+        <button type="button" id="new-entry">Register another visitor</button>
+      </div>
+    </section>
+
+    <footer class="event-footer"><span>Pandrol South Africa · SARA 2026</span><span>20–23 October · Sandton Convention Centre</span></footer>
   </main>
 </body>
 </html>
