@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-17T15:57:40.176Z",
+  "generatedAt": "2026-08-17T16:26:55.971Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -221,21 +221,6 @@
   ],
   "upcomingDeadlines": [
     {
-      "name": "3.1.22 – Discuss engineering-certificate requirements at 17 August meeting",
-      "dueDate": "2026-08-17T02:00:00.000Z",
-      "status": "awaiting information"
-    },
-    {
-      "name": "3.6.1 – Compile guest/delegate list and confirm Gala Dinner places",
-      "dueDate": "2026-08-17T02:00:00.000Z",
-      "status": "awaiting client"
-    },
-    {
-      "name": "3.6.2 – Confirm France visitor travel and presenter logistics",
-      "dueDate": "2026-08-17T02:00:00.000Z",
-      "status": "awaiting client"
-    },
-    {
       "name": "2.7.1 – Research Arduino-controlled welding light and sound simulation",
       "dueDate": "2026-08-18T02:00:00.000Z",
       "status": "in progress"
@@ -259,6 +244,21 @@
       "name": "2.15.2 – Approve architecture, storage ownership and IT/privacy route",
       "dueDate": "2026-08-21T02:00:00.000Z",
       "status": "awaiting information"
+    },
+    {
+      "name": "3.1.17 – Classify products and demonstrations (static, powered or operating)",
+      "dueDate": "2026-08-21T02:00:00.000Z",
+      "status": "awaiting information"
+    },
+    {
+      "name": "2.5.2 – Develop raised displays, integrated seating and feature lighting",
+      "dueDate": "2026-08-21T02:00:00.000Z",
+      "status": "in progress"
+    },
+    {
+      "name": "2.16.1 – Develop practical exhibition clothing and branding concepts",
+      "dueDate": "2026-08-21T02:00:00.000Z",
+      "status": "planning"
     }
   ],
   "publishedRisksIssues": [],
