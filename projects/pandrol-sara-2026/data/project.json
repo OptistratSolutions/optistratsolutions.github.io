@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-18T13:28:36.243Z",
+  "generatedAt": "2026-08-18T14:07:09.562Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -32,9 +32,21 @@
   },
   "progress": {
     "percent": 20.4,
-    "detail": "24 of 106 tasks verified complete"
+    "detail": "27 of 106 tasks verified complete"
   },
   "clientAttention": [
+    {
+      "name": "2.7.1 – Research Arduino-controlled welding light and sound simulation",
+      "type": "Approval",
+      "dueDate": "2026-08-18T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.5.1 – Engineer lightweight sleeper and rail display mock-ups",
+      "type": "Action",
+      "dueDate": "2026-08-21T02:00:00.000Z",
+      "tone": "amber"
+    },
     {
       "name": "3.1.9 – Confirm appointed suppliers and venue-service catalogues",
       "type": "Action",
@@ -42,33 +54,33 @@
       "tone": "amber"
     },
     {
-      "name": "1.7 – Develop budget baseline, forecast and approval matrix",
+      "name": "2.9 – Audit media and approve three-screen content storyboard",
       "type": "Action",
-      "dueDate": "2026-08-28T02:00:00.000Z",
+      "dueDate": "2026-08-21T02:00:00.000Z",
       "tone": "amber"
     },
     {
-      "name": "2.12.3 – Redesign and approve SADC business wall map / stand marketing wall graphic",
+      "name": "2.5 – Design stand layout, visitor flow and service plan",
       "type": "Action",
-      "dueDate": "2026-09-04T02:00:00.000Z",
+      "dueDate": "2026-08-21T02:00:00.000Z",
       "tone": "amber"
     },
     {
-      "name": "2.12.2 – Design and approve SARA 2026 email banner",
-      "type": "Approval",
-      "dueDate": "2026-09-04T02:00:00.000Z",
+      "name": "2.7.2 – Engineer welding display requirements and integration",
+      "type": "Action",
+      "dueDate": "2026-08-24T02:00:00.000Z",
       "tone": "amber"
     },
     {
-      "name": "2.6 – Select products, materials and demonstrations for showcase",
-      "type": "Approval",
-      "dueDate": "2026-09-19T02:00:00.000Z",
+      "name": "Plan product QE codes",
+      "type": "Action",
+      "dueDate": "2026-08-24T02:00:00.000Z",
       "tone": "amber"
     },
     {
-      "name": "2.13 – Evaluate, approve, order and inspect branded client gifts",
-      "type": "Approval",
-      "dueDate": "2026-09-25T02:00:00.000Z",
+      "name": "2.7.3 – Engineer anti-theft rail display requirements and integration",
+      "type": "Action",
+      "dueDate": "2026-08-25T02:00:00.000Z",
       "tone": "amber"
     }
   ],
@@ -250,17 +262,12 @@
     {
       "name": "2.15.2 – Approve architecture, storage ownership and IT/privacy route",
       "dueDate": "2026-08-21T02:00:00.000Z",
-      "status": "awaiting information"
+      "status": "review / close out"
     },
     {
       "name": "3.1.17 – Classify products and demonstrations (static, powered or operating)",
       "dueDate": "2026-08-21T02:00:00.000Z",
       "status": "awaiting information"
-    },
-    {
-      "name": "2.5.2 – Develop raised displays, integrated seating and feature lighting",
-      "dueDate": "2026-08-21T02:00:00.000Z",
-      "status": "in progress"
     },
     {
       "name": "2.16.1 – Develop practical exhibition clothing and branding concepts",
@@ -270,7 +277,12 @@
     {
       "name": "2.15.1 – Assess two touch-enabled iPad lead-capture options",
       "dueDate": "2026-08-21T02:00:00.000Z",
-      "status": "in progress"
+      "status": "review / close out"
+    },
+    {
+      "name": "2.5.1 – Engineer lightweight sleeper and rail display mock-ups",
+      "dueDate": "2026-08-21T02:00:00.000Z",
+      "status": "planning"
     }
   ],
   "publishedRisksIssues": [],
