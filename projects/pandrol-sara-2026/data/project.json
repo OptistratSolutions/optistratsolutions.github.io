@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-18T08:52:13.291Z",
+  "generatedAt": "2026-08-18T09:25:00.681Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -22,12 +22,12 @@
     "to": "2026-08-23"
   },
   "nextMilestone": {
-    "name": "Stand dry-build",
-    "date": "2026-08-28T02:00:00.000Z",
+    "name": "60% readiness review",
+    "date": "2026-09-18T02:00:00.000Z",
     "complete": false,
     "overdue": false,
     "unlinked": false,
-    "note": "planning",
+    "note": "awaiting information",
     "state": "next"
   },
   "progress": {
@@ -138,31 +138,13 @@
       "state": "complete"
     },
     {
-      "name": "Stand dry-build",
-      "date": "2026-08-28T02:00:00.000Z",
-      "complete": false,
-      "overdue": false,
-      "unlinked": false,
-      "note": "planning",
-      "state": "next"
-    },
-    {
-      "name": "Stand snags closed",
-      "date": "2026-09-04T02:00:00.000Z",
-      "complete": false,
-      "overdue": false,
-      "unlinked": false,
-      "note": "planning",
-      "state": "upcoming"
-    },
-    {
       "name": "60% readiness review",
       "date": "2026-09-18T02:00:00.000Z",
       "complete": false,
       "overdue": false,
       "unlinked": false,
       "note": "awaiting information",
-      "state": "upcoming"
+      "state": "next"
     },
     {
       "name": "Production/content freeze",
@@ -171,6 +153,24 @@
       "overdue": false,
       "unlinked": false,
       "note": "awaiting information",
+      "state": "upcoming"
+    },
+    {
+      "name": "Stand dry-build",
+      "date": "2026-09-28T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "planning",
+      "state": "upcoming"
+    },
+    {
+      "name": "Stand snags closed",
+      "date": "2026-09-30T02:00:00.000Z",
+      "complete": false,
+      "overdue": false,
+      "unlinked": false,
+      "note": "planning",
       "state": "upcoming"
     },
     {
