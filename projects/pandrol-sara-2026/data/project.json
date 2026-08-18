@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-18T14:50:57.598Z",
+  "generatedAt": "2026-08-18T15:24:07.963Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -32,7 +32,7 @@
   },
   "progress": {
     "percent": 20.8,
-    "detail": "31 of 106 tasks verified complete"
+    "detail": "31 of 105 tasks verified complete"
   },
   "clientAttention": [
     {
@@ -203,7 +203,7 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "awaiting information",
+      "note": "planning",
       "state": "upcoming"
     },
     {
@@ -212,7 +212,7 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "awaiting information",
+      "note": "approval pending",
       "state": "upcoming"
     },
     {
@@ -221,7 +221,7 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "awaiting information",
+      "note": "approval pending",
       "state": "upcoming"
     },
     {
@@ -230,7 +230,7 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "awaiting information",
+      "note": "approval pending",
       "state": "upcoming"
     },
     {
@@ -239,7 +239,7 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "awaiting information",
+      "note": "on hold",
       "state": "upcoming"
     }
   ],
