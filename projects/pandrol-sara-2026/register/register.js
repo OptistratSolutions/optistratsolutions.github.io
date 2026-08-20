@@ -46,7 +46,7 @@
       strictMode: true,
       placeholderNumberPolicy: "AGGRESSIVE",
       allowedNumberTypes: ["MOBILE", "FIXED_LINE"],
-      loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/build/js/utils.js")
+      loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/utils.js")
     });
 
     return phoneInputInstance.promise.catch(() => {
