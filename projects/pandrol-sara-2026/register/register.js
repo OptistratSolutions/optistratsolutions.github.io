@@ -21,19 +21,56 @@
   const form = document.querySelector("#visitor-form");
   const status = document.querySelector("#form-status");
   const servicesError = document.querySelector("#services-error");
+  const phoneInput = document.querySelector("#telephone");
+  const phoneError = document.querySelector("#telephone-error");
   const successPanel = document.querySelector("#success-panel");
   const submitButton = form.querySelector(".submit-button");
   const submitLabel = submitButton.querySelector("span");
   const newEntryButton = document.querySelector("#new-entry");
 
-  const cleanPhone = (value) => {
-    const digits = value.replace(/\D/g, "").replace(/^27/, "").replace(/^0/, "");
-    return digits ? `+27${digits}` : "";
-  };
+  let phoneInputInstance = null;
+
+  const phoneReady = (() => {
+    if (!window.intlTelInput) {
+      phoneInput.setCustomValidity("The international country selector could not load.");
+      phoneError.textContent = "The country selector could not load. Please check the connection and refresh the page.";
+      return Promise.resolve();
+    }
+
+    phoneInputInstance = window.intlTelInput(phoneInput, {
+      initialCountry: "za",
+      countryOrder: ["za", "gb", "fr"],
+      countrySearch: true,
+      countrySelectorMode: "FULLSCREEN",
+      separateDialCode: true,
+      strictMode: true,
+      placeholderNumberPolicy: "AGGRESSIVE",
+      allowedNumberTypes: ["MOBILE", "FIXED_LINE"],
+      loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/build/js/utils.js")
+    });
+
+    return phoneInputInstance.promise.catch(() => {
+      phoneInput.setCustomValidity("The international phone validation service could not load.");
+      phoneError.textContent = "Phone validation could not load. Please check the connection and refresh the page.";
+    });
+  })();
+
+  const getInternationalPhone = () => phoneInputInstance?.getNumber() || "";
 
   const customField = (id, value) => ({ id, value });
 
   const validate = () => {
+    phoneInput.setCustomValidity("");
+    phoneError.textContent = "";
+
+    if (!phoneInput.value.trim()) {
+      phoneInput.setCustomValidity("Please enter a telephone or WhatsApp number.");
+      phoneError.textContent = "Please enter a telephone or WhatsApp number.";
+    } else if (!phoneInputInstance?.isValidNumber()) {
+      phoneInput.setCustomValidity("Please enter a valid number for the selected country.");
+      phoneError.textContent = "Please enter a valid number for the selected country.";
+    }
+
     let valid = form.checkValidity();
     const services = form.querySelectorAll('input[name="services"]:checked');
 
@@ -63,7 +100,7 @@
         customField(fieldIds.surname, data.get("surname").trim()),
         customField(fieldIds.company, data.get("company").trim()),
         customField(fieldIds.jobTitle, data.get("jobTitle").trim()),
-        customField(fieldIds.telephone, cleanPhone(data.get("telephone"))),
+        customField(fieldIds.telephone, getInternationalPhone()),
         customField(fieldIds.email, data.get("email").trim()),
         customField(fieldIds.services, data.getAll("services")),
         customField(fieldIds.challenge, data.get("challenge").trim()),
@@ -89,12 +126,23 @@
       event.target.setAttribute("aria-invalid", event.target.validity.valid ? "false" : "true");
     }
     if (event.target.name === "services") servicesError.textContent = "";
+    if (event.target.name === "telephone") {
+      phoneInput.setCustomValidity("");
+      phoneError.textContent = "";
+    }
+    status.textContent = "";
+  });
+
+  phoneInput.addEventListener("countrychange", () => {
+    phoneInput.setCustomValidity("");
+    phoneError.textContent = "";
     status.textContent = "";
   });
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     status.textContent = "";
+    await phoneReady;
     if (!validate()) return;
 
     if (form.elements.website.value || Date.now() - startedAt < 1800) {

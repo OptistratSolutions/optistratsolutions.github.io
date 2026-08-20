@@ -287,8 +287,7 @@ input[aria-invalid="true"],
 textarea[aria-invalid="true"] { border-color: var(--danger); }
 
 .phone-control {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: block;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 11px;
@@ -301,21 +300,51 @@ textarea[aria-invalid="true"] { border-color: var(--danger); }
   box-shadow: 0 0 0 3px rgba(253, 180, 21, .17);
 }
 
-.country-code {
-  display: flex;
-  align-items: center;
-  padding: 0 14px;
-  color: var(--yellow);
-  border-right: 1px solid var(--line);
-  font-size: .88rem;
-  font-weight: 700;
-}
-
 .phone-control input {
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+}
+
+.phone-control .iti { width: 100%; }
+
+.phone-control .iti__selected-country {
+  min-width: 104px;
+  padding-inline: 14px;
+  color: var(--yellow);
+  border-right: 1px solid var(--line);
+  background: rgba(0, 21, 47, .45);
+  font-weight: 700;
+}
+
+.phone-control .iti__selected-country:hover,
+.phone-control .iti__selected-country:focus-visible {
+  background: rgba(253, 180, 21, .12);
+}
+
+.phone-control .iti__selected-dial-code { color: var(--yellow); }
+
+.phone-control .iti__arrow { border-top-color: var(--yellow); }
+
+.iti__country-selector {
+  --iti-hover-color: rgba(253, 180, 21, .12);
+  --iti-border-color: rgba(255, 255, 255, .25);
+  --iti-dialcode-color: rgba(255, 255, 255, .72);
+  --iti-dropdown-bg: var(--navy-deep);
+}
+
+.iti__country-selector .iti__country {
+  min-height: 50px;
+  color: var(--white);
+}
+
+.iti__country-selector .iti__search-input {
+  min-height: 52px;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .1);
+  font-size: 1rem;
 }
 
 .phone-control input:focus {
