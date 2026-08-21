@@ -15,7 +15,7 @@
     email: "5127d0fb-6bda-46f2-9bfa-969fdb430f76",
     services: "ef6207e2-bbe9-49c0-99ba-8202c30e5271",
     challenge: "09ec71ae-8f05-4d41-9a8f-b7ff72ecb51d",
-    contactMethod: "96cf7d9a-00de-45e1-857b-b56f2e4ff367",
+    contactMethod: "b9eceb62-8eb1-4018-bede-2110dab15b85",
     consent: "87fb70ce-0ec9-4d1d-b0a7-ea94f8d0abaa"
   };
 
