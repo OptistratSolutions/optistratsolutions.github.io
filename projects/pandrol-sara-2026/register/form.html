@@ -80,13 +80,28 @@
         </div>
 
         <fieldset class="contact-fieldset">
-          <legend>Preferred contact method <span aria-hidden="true">*</span></legend>
-          <div class="contact-options">
-            <label><input type="radio" name="contactMethod" value="b3113a35-bdb8-4670-89b4-9e31ff1b1831" required><span>Email</span></label>
-            <label><input type="radio" name="contactMethod" value="85310178-d54b-4eea-adcf-0f05d5080352"><span>Telephone call</span></label>
-            <label><input type="radio" name="contactMethod" value="dfe86aba-e9d2-411c-baa3-e80d93d67595"><span>WhatsApp</span></label>
-          </div>
-        </fieldset>
+  <legend>Preferred contact method <span aria-hidden="true">*</span></legend>
+  <p>Select all that apply.</p>
+
+  <div class="contact-options">
+    <label>
+      <input type="checkbox" name="contactMethod" value="b3113a35-bdb8-4670-89b4-9e31ff1b1831">
+      <span>Email</span>
+    </label>
+
+    <label>
+      <input type="checkbox" name="contactMethod" value="85310178-d54b-4eea-adcf-0f05d5080352">
+      <span>Telephone call</span>
+    </label>
+
+    <label>
+      <input type="checkbox" name="contactMethod" value="dfe86aba-e9d2-411c-baa3-e80d93d67595">
+      <span>WhatsApp</span>
+    </label>
+  </div>
+
+  <p class="field-error" id="contact-method-error" role="alert"></p>
+</fieldset>
 
         <label class="consent-row">
           <input type="checkbox" name="consent" required>
