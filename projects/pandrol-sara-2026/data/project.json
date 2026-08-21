@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T09:32:00.903Z",
+  "generatedAt": "2026-08-21T10:05:08.845Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -72,13 +72,13 @@
       "tone": "amber"
     },
     {
-      "name": "2.5 – Design stand layout, visitor flow and service plan",
+      "name": "2.7.2 – Engineer welding display requirements and integration",
       "type": "Action",
-      "dueDate": "2026-08-21T02:00:00.000Z",
+      "dueDate": "2026-08-24T02:00:00.000Z",
       "tone": "amber"
     },
     {
-      "name": "2.7.2 – Engineer welding display requirements and integration",
+      "name": "Plan product QE codes",
       "type": "Action",
       "dueDate": "2026-08-24T02:00:00.000Z",
       "tone": "amber"
@@ -275,14 +275,14 @@
       "status": "in progress"
     },
     {
-      "name": "2.5 – Design stand layout, visitor flow and service plan",
-      "dueDate": "2026-08-21T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
       "name": "2.7.2 – Engineer welding display requirements and integration",
       "dueDate": "2026-08-24T02:00:00.000Z",
       "status": "in progress"
+    },
+    {
+      "name": "Plan product QE codes",
+      "dueDate": "2026-08-24T02:00:00.000Z",
+      "status": "planning"
     }
   ],
   "publishedRisksIssues": [],
