@@ -5,6 +5,7 @@
   const HOME_URL = "./";
   const RETURN_DELAY_MS = 3500;
   const startedAt = Date.now();
+
   const fieldIds = {
     firstName: "6c89ace3-8193-47e9-93ed-8a0e8019121f",
     surname: "5e0ec64f-9633-4b35-8555-aee9a4067de4",
@@ -21,6 +22,7 @@
   const form = document.querySelector("#visitor-form");
   const status = document.querySelector("#form-status");
   const servicesError = document.querySelector("#services-error");
+  const contactMethodError = document.querySelector("#contact-method-error");
   const phoneInput = document.querySelector("#telephone");
   const phoneError = document.querySelector("#telephone-error");
   const successPanel = document.querySelector("#success-panel");
@@ -33,7 +35,9 @@
   const phoneReady = (() => {
     if (!window.intlTelInput) {
       phoneInput.setCustomValidity("The international country selector could not load.");
-      phoneError.textContent = "The country selector could not load. Please check the connection and refresh the page.";
+      phoneError.textContent =
+        "The country selector could not load. Please check the connection and refresh the page.";
+
       return Promise.resolve();
     }
 
@@ -46,67 +50,157 @@
       strictMode: true,
       placeholderNumberPolicy: "AGGRESSIVE",
       allowedNumberTypes: ["MOBILE", "FIXED_LINE"],
-      loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/utils.js")
+      loadUtils: () =>
+        import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/utils.js")
     });
 
     return phoneInputInstance.promise.catch(() => {
-      phoneInput.setCustomValidity("The international phone validation service could not load.");
-      phoneError.textContent = "Phone validation could not load. Please check the connection and refresh the page.";
+      phoneInput.setCustomValidity(
+        "The international phone validation service could not load."
+      );
+
+      phoneError.textContent =
+        "Phone validation could not load. Please check the connection and refresh the page.";
     });
   })();
 
-  const getInternationalPhone = () => phoneInputInstance?.getNumber() || "";
+  const getInternationalPhone = () =>
+    phoneInputInstance?.getNumber() || "";
 
-  const customField = (id, value) => ({ id, value });
+  const customField = (id, value) => ({
+    id,
+    value
+  });
 
   const validate = () => {
     phoneInput.setCustomValidity("");
     phoneError.textContent = "";
+    contactMethodError.textContent = "";
 
     if (!phoneInput.value.trim()) {
-      phoneInput.setCustomValidity("Please enter a telephone or WhatsApp number.");
-      phoneError.textContent = "Please enter a telephone or WhatsApp number.";
+      phoneInput.setCustomValidity(
+        "Please enter a telephone or WhatsApp number."
+      );
+
+      phoneError.textContent =
+        "Please enter a telephone or WhatsApp number.";
     } else if (!phoneInputInstance?.isValidNumber()) {
-      phoneInput.setCustomValidity("Please enter a valid number for the selected country.");
-      phoneError.textContent = "Please enter a valid number for the selected country.";
+      phoneInput.setCustomValidity(
+        "Please enter a valid number for the selected country."
+      );
+
+      phoneError.textContent =
+        "Please enter a valid number for the selected country.";
     }
 
     let valid = form.checkValidity();
-    const services = form.querySelectorAll('input[name="services"]:checked');
+
+    const services = form.querySelectorAll(
+      'input[name="services"]:checked'
+    );
+
+    const contactMethods = form.querySelectorAll(
+      'input[name="contactMethod"]:checked'
+    );
 
     form.querySelectorAll("input, textarea").forEach((control) => {
-      control.setAttribute("aria-invalid", control.validity.valid ? "false" : "true");
+      control.setAttribute(
+        "aria-invalid",
+        control.validity.valid ? "false" : "true"
+      );
     });
 
     if (!services.length) {
-      servicesError.textContent = "Please select at least one service of interest.";
+      servicesError.textContent =
+        "Please select at least one service of interest.";
+
       valid = false;
     } else {
       servicesError.textContent = "";
     }
 
-    if (!valid) {
-      const firstInvalid = form.querySelector('[aria-invalid="true"]');
-      firstInvalid?.focus();
+    if (!contactMethods.length) {
+      contactMethodError.textContent =
+        "Please select at least one preferred contact method.";
+
+      valid = false;
+    } else {
+      contactMethodError.textContent = "";
     }
+
+    if (!valid) {
+      const firstInvalid = form.querySelector(
+        '[aria-invalid="true"]'
+      );
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+      } else if (!contactMethods.length) {
+        form.querySelector(
+          'input[name="contactMethod"]'
+        )?.focus();
+      }
+    }
+
     return valid;
   };
 
   const buildPayload = () => {
     const data = new FormData(form);
+
     return {
       customFields: [
-        customField(fieldIds.firstName, data.get("firstName").trim()),
-        customField(fieldIds.surname, data.get("surname").trim()),
-        customField(fieldIds.company, data.get("company").trim()),
-        customField(fieldIds.jobTitle, data.get("jobTitle").trim()),
-        customField(fieldIds.telephone, getInternationalPhone()),
-        customField(fieldIds.email, data.get("email").trim()),
-        customField(fieldIds.services, data.getAll("services")),
-        customField(fieldIds.challenge, data.get("challenge").trim()),
-        customField(fieldIds.contactMethod, data.get("contactMethod")),
-        customField(fieldIds.consent, data.get("consent") === "on")
+        customField(
+          fieldIds.firstName,
+          data.get("firstName").trim()
+        ),
+
+        customField(
+          fieldIds.surname,
+          data.get("surname").trim()
+        ),
+
+        customField(
+          fieldIds.company,
+          data.get("company").trim()
+        ),
+
+        customField(
+          fieldIds.jobTitle,
+          data.get("jobTitle").trim()
+        ),
+
+        customField(
+          fieldIds.telephone,
+          getInternationalPhone()
+        ),
+
+        customField(
+          fieldIds.email,
+          data.get("email").trim()
+        ),
+
+        customField(
+          fieldIds.services,
+          data.getAll("services")
+        ),
+
+        customField(
+          fieldIds.challenge,
+          data.get("challenge").trim()
+        ),
+
+        customField(
+          fieldIds.contactMethod,
+          data.getAll("contactMethod")
+        ),
+
+        customField(
+          fieldIds.consent,
+          data.get("consent") === "on"
+        )
       ],
+
       timezone: "Africa/Johannesburg",
       assignees: [],
       group_assignees: []
@@ -117,19 +211,38 @@
     form.hidden = true;
     successPanel.hidden = false;
     successPanel.focus();
-    successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-    window.setTimeout(() => window.location.replace(HOME_URL), RETURN_DELAY_MS);
+
+    successPanel.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    window.setTimeout(() => {
+      window.location.replace(HOME_URL);
+    }, RETURN_DELAY_MS);
   };
 
   form.addEventListener("input", (event) => {
     if (event.target.matches("input, textarea")) {
-      event.target.setAttribute("aria-invalid", event.target.validity.valid ? "false" : "true");
+      event.target.setAttribute(
+        "aria-invalid",
+        event.target.validity.valid ? "false" : "true"
+      );
     }
-    if (event.target.name === "services") servicesError.textContent = "";
+
+    if (event.target.name === "services") {
+      servicesError.textContent = "";
+    }
+
+    if (event.target.name === "contactMethod") {
+      contactMethodError.textContent = "";
+    }
+
     if (event.target.name === "telephone") {
       phoneInput.setCustomValidity("");
       phoneError.textContent = "";
     }
+
     status.textContent = "";
   });
 
@@ -141,19 +254,32 @@
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    status.textContent = "";
-    await phoneReady;
-    if (!validate()) return;
 
-    if (form.elements.website.value || Date.now() - startedAt < 1800) {
+    status.textContent = "";
+
+    await phoneReady;
+
+    if (!validate()) {
+      return;
+    }
+
+    if (
+      form.elements.website.value ||
+      Date.now() - startedAt < 1800
+    ) {
       showSuccess();
       return;
     }
 
     submitButton.disabled = true;
     submitLabel.textContent = "Submitting…";
+
     const requestBody = new FormData();
-    requestBody.append("body", JSON.stringify(buildPayload()));
+
+    requestBody.append(
+      "body",
+      JSON.stringify(buildPayload())
+    );
 
     try {
       await fetch(FORM_ENDPOINT, {
@@ -162,9 +288,11 @@
         credentials: "omit",
         body: requestBody
       });
+
       showSuccess();
     } catch (error) {
-      status.textContent = "We couldn’t submit your details. Please check the connection and try again.";
+      status.textContent =
+        "We couldn’t submit your details. Please check the connection and try again.";
     } finally {
       submitButton.disabled = false;
       submitLabel.textContent = "Submit details";
