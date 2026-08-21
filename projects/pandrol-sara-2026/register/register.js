@@ -1,7 +1,9 @@
 (() => {
   "use strict";
 
-  const FORM_ENDPOINT = "https://prod-eu-west-1-2.clickup.com/ui/v3/workspaces/9005033045/forms/8cbvtjn-18772/submit?token=BWBAH4JYH9D82XWGOG&ngsw-bypass=true";
+  const FORM_ENDPOINT =
+    "https://prod-eu-west-1-2.clickup.com/ui/v3/workspaces/9005033045/forms/8cbvtjn-18772/submit?token=BWBAH4JYH9D82XWGOG&ngsw-bypass=true";
+
   const HOME_URL = "./";
   const RETURN_DELAY_MS = 3500;
   const startedAt = Date.now();
@@ -15,7 +17,6 @@
     email: "5127d0fb-6bda-46f2-9bfa-969fdb430f76",
     services: "ef6207e2-bbe9-49c0-99ba-8202c30e5271",
     challenge: "09ec71ae-8f05-4d41-9a8f-b7ff72ecb51d",
-    contactMethod: "b9eceb62-8eb1-4018-bede-2110dab15b85",
     consent: "87fb70ce-0ec9-4d1d-b0a7-ea94f8d0abaa"
   };
 
@@ -34,7 +35,10 @@
 
   const phoneReady = (() => {
     if (!window.intlTelInput) {
-      phoneInput.setCustomValidity("The international country selector could not load.");
+      phoneInput.setCustomValidity(
+        "The international country selector could not load."
+      );
+
       phoneError.textContent =
         "The country selector could not load. Please check the connection and refresh the page.";
 
@@ -51,7 +55,9 @@
       placeholderNumberPolicy: "AGGRESSIVE",
       allowedNumberTypes: ["MOBILE", "FIXED_LINE"],
       loadUtils: () =>
-        import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/utils.js")
+        import(
+          "https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/utils.js"
+        )
     });
 
     return phoneInputInstance.promise.catch(() => {
@@ -75,6 +81,7 @@
   const validate = () => {
     phoneInput.setCustomValidity("");
     phoneError.textContent = "";
+    servicesError.textContent = "";
     contactMethodError.textContent = "";
 
     if (!phoneInput.value.trim()) {
@@ -115,8 +122,6 @@
         "Please select at least one service of interest.";
 
       valid = false;
-    } else {
-      servicesError.textContent = "";
     }
 
     if (!contactMethods.length) {
@@ -124,8 +129,6 @@
         "Please select at least one preferred contact method.";
 
       valid = false;
-    } else {
-      contactMethodError.textContent = "";
     }
 
     if (!valid) {
@@ -188,11 +191,6 @@
         customField(
           fieldIds.challenge,
           data.get("challenge").trim()
-        ),
-
-        customField(
-          fieldIds.contactMethod,
-          data.getAll("contactMethod")
         ),
 
         customField(
