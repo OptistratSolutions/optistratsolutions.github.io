@@ -85,7 +85,7 @@
 
         separateDialCode: true,
 
-        strictMode: true,
+        strictMode: false,
 
         placeholderNumberPolicy:
           "AGGRESSIVE",
