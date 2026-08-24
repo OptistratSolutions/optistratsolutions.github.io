@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-24T13:36:02.794Z",
+  "generatedAt": "2026-08-24T14:24:33.958Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -32,7 +32,7 @@
   },
   "progress": {
     "percent": 26.1,
-    "detail": "39 of 108 tasks verified complete"
+    "detail": "38 of 108 tasks verified complete"
   },
   "clientAttention": [
     {
