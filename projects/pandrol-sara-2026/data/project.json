@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-24T14:24:33.958Z",
+  "generatedAt": "2026-08-24T15:08:27.976Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -32,15 +32,9 @@
   },
   "progress": {
     "percent": 26.1,
-    "detail": "38 of 108 tasks verified complete"
+    "detail": "38 of 111 tasks verified complete"
   },
   "clientAttention": [
-    {
-      "name": "2.15.1 – Assess two touch-enabled iPad lead-capture options",
-      "type": "Approval",
-      "dueDate": "2026-08-21T02:00:00.000Z",
-      "tone": "red"
-    },
     {
       "name": "2.5.1 – Engineer lightweight sleeper and rail display mock-ups",
       "type": "Action",
@@ -80,6 +74,12 @@
     {
       "name": "2.7.1 – Research Arduino-controlled welding light and sound simulation",
       "type": "Approval",
+      "dueDate": "2026-08-24T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.5 – Design stand layout, visitor flow and service plan",
+      "type": "Action",
       "dueDate": "2026-08-24T02:00:00.000Z",
       "tone": "amber"
     }
@@ -257,7 +257,7 @@
     {
       "name": "2.7.1 – Research Arduino-controlled welding light and sound simulation",
       "dueDate": "2026-08-24T02:00:00.000Z",
-      "status": "awaiting client"
+      "status": "planning"
     },
     {
       "name": "3.1.22 – Discuss engineering-certificate requirements at 17 August meeting",
