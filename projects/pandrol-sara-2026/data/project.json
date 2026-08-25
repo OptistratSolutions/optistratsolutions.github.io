@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T11:21:12.288Z",
+  "generatedAt": "2026-08-25T11:52:40.659Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "9 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "7 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Stand integration and production",
@@ -31,8 +31,8 @@
     "state": "next"
   },
   "progress": {
-    "percent": 26.1,
-    "detail": "40 of 111 tasks verified complete"
+    "percent": 27.1,
+    "detail": "46 of 116 tasks verified complete"
   },
   "clientAttention": [
     {
@@ -54,20 +54,8 @@
       "tone": "red"
     },
     {
-      "name": "2.7.2 – Engineer welding display requirements and integration",
-      "type": "Action",
-      "dueDate": "2026-08-24T02:00:00.000Z",
-      "tone": "red"
-    },
-    {
       "name": "Plan product QE codes",
       "type": "Action",
-      "dueDate": "2026-08-24T02:00:00.000Z",
-      "tone": "red"
-    },
-    {
-      "name": "2.7.1 – Research Arduino-controlled welding light and sound simulation",
-      "type": "Approval",
       "dueDate": "2026-08-24T02:00:00.000Z",
       "tone": "red"
     },
@@ -78,9 +66,21 @@
       "tone": "red"
     },
     {
-      "name": "2.7.3 – Engineer anti-theft rail display requirements and integration",
+      "name": "2.2 – Plan stand pre-assembly, inspection and acceptance",
+      "type": "Approval",
+      "dueDate": "2026-08-28T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.7.9 – Fabricate and assemble ultrasonic display",
       "type": "Action",
-      "dueDate": "2026-08-25T02:00:00.000Z",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.7.8 – Fabricate sleeper and rail anti-theft display",
+      "type": "Action",
+      "dueDate": "2026-09-04T02:00:00.000Z",
       "tone": "amber"
     }
   ],
@@ -101,7 +101,7 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "9",
+      "value": "7",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
@@ -136,10 +136,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "68%",
+      "value": "70%",
       "status": "Recovery",
       "tone": "red",
-      "detail": "28 of 41 due tasks completed on time"
+      "detail": "28 of 40 due tasks completed on time"
     }
   ],
   "milestones": [
@@ -245,26 +245,6 @@
   ],
   "upcomingDeadlines": [
     {
-      "name": "2.7.3 – Engineer anti-theft rail display requirements and integration",
-      "dueDate": "2026-08-25T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
-      "name": "2.7.4 – Engineer ultrasonic display requirements and integration",
-      "dueDate": "2026-08-26T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
-      "name": "2.7.5 – Engineer pigeonhole display requirements and feature integration",
-      "dueDate": "2026-08-27T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
-      "name": "2.7.6 – Engineer other supporting display requirements and interfaces",
-      "dueDate": "2026-08-28T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
       "name": "2.15.4 – Build branded GitHub Pages tablet prototype",
       "dueDate": "2026-08-28T02:00:00.000Z",
       "status": "in progress"
@@ -280,7 +260,27 @@
       "status": "planning"
     },
     {
+      "name": "2.7.9 – Fabricate and assemble ultrasonic display",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "status": "planning"
+    },
+    {
+      "name": "2.7.8 – Fabricate sleeper and rail anti-theft display",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "status": "planning"
+    },
+    {
+      "name": "2.7.7 – Fabricate and assemble welding display",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "status": "planning"
+    },
+    {
       "name": "Get a trolley - general purpose to move goods around.",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "status": "in progress"
+    },
+    {
+      "name": "2.12.6 - Clouthing design and name tags",
       "dueDate": "2026-09-04T02:00:00.000Z",
       "status": "in progress"
     }
