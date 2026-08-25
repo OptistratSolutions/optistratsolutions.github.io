@@ -69,6 +69,10 @@
 
   let isSubmitting = false;
 
+  let isReturningHome = false;
+
+  let inactivityCycle = 0;
+
   const phoneReady = (() => {
 
     if (!window.intlTelInput) {
@@ -355,7 +359,8 @@
   const formIsActive = () =>
     !form.hidden &&
     successPanel.hidden &&
-    !isSubmitting;
+    !isSubmitting &&
+    !isReturningHome;
 
   const clearIncompleteForm = () => {
 
@@ -394,13 +399,62 @@
 
   const returnToHome = () => {
 
+    if (isReturningHome) {
+      return;
+    }
+
+    isReturningHome = true;
+
     stopInactivityTimer();
 
-    clearIncompleteForm();
 
-    window.location.replace(
-      HOME_URL
-    );
+    const absoluteHomeUrl =
+      new URL(
+        HOME_URL,
+        window.location.href
+      ).href;
+
+    try {
+
+      clearIncompleteForm();
+
+    } catch (error) {
+
+      console.warn(
+        "The incomplete form could not be reset before returning home:",
+        error
+      );
+
+    } finally {
+
+      try {
+
+        window.location.replace(
+          absoluteHomeUrl
+        );
+
+      } catch (error) {
+
+        window.location.href =
+          absoluteHomeUrl;
+
+        return;
+      }
+
+      window.setTimeout(() => {
+
+        if (
+          window.location.href !==
+          absoluteHomeUrl
+        ) {
+
+          window.location.assign(
+            absoluteHomeUrl
+          );
+        }
+
+      }, 750);
+    }
   };
 
   const resetInactivityTimer = () => {
@@ -411,26 +465,42 @@
 
     stopInactivityTimer();
 
+    inactivityCycle += 1;
+
+    const activeCycle =
+      inactivityCycle;
+
     inactivityWarningTimer =
       window.setTimeout(() => {
 
-        if (formIsActive()) {
+        if (
+          formIsActive() &&
+          activeCycle ===
+            inactivityCycle
+        ) {
 
           inactivityWarning.hidden =
             false;
+
+          inactivityResetTimer =
+            window.setTimeout(() => {
+
+              if (
+                formIsActive() &&
+                activeCycle ===
+                  inactivityCycle
+              ) {
+
+                returnToHome();
+              }
+
+            },
+            INACTIVITY_RESET_MS -
+              INACTIVITY_WARNING_MS
+            );
         }
 
       }, INACTIVITY_WARNING_MS);
-
-    inactivityResetTimer =
-      window.setTimeout(() => {
-
-        if (formIsActive()) {
-
-          returnToHome();
-        }
-
-      }, INACTIVITY_RESET_MS);
   };
 
   const formHasEnteredData = () =>
