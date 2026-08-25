@@ -4,7 +4,7 @@
   const FORM_ENDPOINT =
     "https://prod-eu-west-1-2.clickup.com/ui/v3/workspaces/9005033045/forms/8cbvtjn-18772/submit?token=BWBAH4JYH9D82XWGOG&ngsw-bypass=true";
 
-  const HOME_URL = "./";
+  const HOME_URL = "./index.html";
 
   const RETURN_DELAY_MS = 8000;
 
@@ -407,12 +407,15 @@
 
     stopInactivityTimer();
 
-
     const absoluteHomeUrl =
+      returnHomeButton.href ||
       new URL(
         HOME_URL,
         window.location.href
       ).href;
+
+    window.location.href =
+      absoluteHomeUrl;
 
     try {
 
@@ -427,31 +430,10 @@
 
     } finally {
 
-      try {
-
-        window.location.replace(
-          absoluteHomeUrl
-        );
-
-      } catch (error) {
+      window.setTimeout(() => {
 
         window.location.href =
           absoluteHomeUrl;
-
-        return;
-      }
-
-      window.setTimeout(() => {
-
-        if (
-          window.location.href !==
-          absoluteHomeUrl
-        ) {
-
-          window.location.assign(
-            absoluteHomeUrl
-          );
-        }
 
       }, 750);
     }
@@ -719,7 +701,7 @@
 
   returnHomeButton.addEventListener(
     "click",
-    () => {
+    (event) => {
 
       if (
         formHasEnteredData() &&
@@ -728,12 +710,28 @@
         )
       ) {
 
+        event.preventDefault();
+
         resetInactivityTimer();
 
         return;
       }
 
-      returnToHome();
+      isReturningHome = true;
+
+      stopInactivityTimer();
+
+      try {
+
+        clearIncompleteForm();
+
+      } catch (error) {
+
+        console.warn(
+          "The form could not be reset before following the home link:",
+          error
+        );
+      }
     }
   );
 

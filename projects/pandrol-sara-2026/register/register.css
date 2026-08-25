@@ -575,15 +575,19 @@ input[type="radio"] {
 }
 
 .return-home-button {
+  display: flex;
   width: min(100%, 320px);
   min-height: 52px;
   padding: 12px 22px;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: var(--yellow);
   border: 1px solid rgba(253, 180, 21, .72);
   border-radius: 10px;
   background: rgba(253, 180, 21, .08);
   font-weight: 700;
+  text-decoration: none;
   transition: color .18s, border-color .18s, background .18s, transform .18s;
 }
 
