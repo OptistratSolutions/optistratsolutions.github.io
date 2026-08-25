@@ -8,6 +8,10 @@
 
   const RETURN_DELAY_MS = 8000;
 
+  const INACTIVITY_WARNING_MS = 50000;
+
+  const INACTIVITY_RESET_MS = 60000;
+
   const fieldIds = {
     firstName: "6c89ace3-8193-47e9-93ed-8a0e8019121f",
     surname: "5e0ec64f-9633-4b35-8555-aee9a4067de4",
@@ -51,7 +55,19 @@
   const newEntryButton =
     document.querySelector("#new-entry");
 
+  const returnHomeButton =
+    document.querySelector("#return-home");
+
+  const inactivityWarning =
+    document.querySelector("#inactivity-warning");
+
   let phoneInputInstance = null;
+
+  let inactivityWarningTimer = null;
+
+  let inactivityResetTimer = null;
+
+  let isSubmitting = false;
 
   const phoneReady = (() => {
 
@@ -314,7 +330,141 @@
     };
   };
 
+  const hideInactivityWarning = () => {
+
+    inactivityWarning.hidden = true;
+  };
+
+  const stopInactivityTimer = () => {
+
+    window.clearTimeout(
+      inactivityWarningTimer
+    );
+
+    window.clearTimeout(
+      inactivityResetTimer
+    );
+
+    inactivityWarningTimer = null;
+
+    inactivityResetTimer = null;
+
+    hideInactivityWarning();
+  };
+
+  const formIsActive = () =>
+    !form.hidden &&
+    successPanel.hidden &&
+    !isSubmitting;
+
+  const clearIncompleteForm = () => {
+
+    form.reset();
+
+    if (phoneInputInstance) {
+
+      phoneInputInstance.setCountry(
+        "za"
+      );
+    }
+
+    phoneInput.value = "";
+
+    form
+      .querySelectorAll(
+        "[aria-invalid]"
+      )
+      .forEach((control) => {
+
+        control.removeAttribute(
+          "aria-invalid"
+        );
+      });
+
+    phoneInput.setCustomValidity("");
+
+    phoneError.textContent = "";
+
+    servicesError.textContent = "";
+
+    contactMethodError.textContent = "";
+
+    status.textContent = "";
+  };
+
+  const returnToHome = () => {
+
+    stopInactivityTimer();
+
+    clearIncompleteForm();
+
+    window.location.replace(
+      HOME_URL
+    );
+  };
+
+  const resetInactivityTimer = () => {
+
+    if (!formIsActive()) {
+      return;
+    }
+
+    stopInactivityTimer();
+
+    inactivityWarningTimer =
+      window.setTimeout(() => {
+
+        if (formIsActive()) {
+
+          inactivityWarning.hidden =
+            false;
+        }
+
+      }, INACTIVITY_WARNING_MS);
+
+    inactivityResetTimer =
+      window.setTimeout(() => {
+
+        if (formIsActive()) {
+
+          returnToHome();
+        }
+
+      }, INACTIVITY_RESET_MS);
+  };
+
+  const formHasEnteredData = () =>
+    Array.from(form.elements).some(
+      (control) => {
+
+        if (
+          !control.name ||
+          control.name === "website" ||
+          control.disabled ||
+          control.type === "submit" ||
+          control.type === "button"
+        ) {
+
+          return false;
+        }
+
+        if (
+          control.type === "checkbox" ||
+          control.type === "radio"
+        ) {
+
+          return control.checked;
+        }
+
+        return String(
+          control.value || ""
+        ).trim() !== "";
+      }
+    );
+
   const showSuccess = () => {
+
+    stopInactivityTimer();
 
     form.hidden = true;
 
@@ -434,6 +584,10 @@
       submitLabel.textContent =
         "Submitting…";
 
+      isSubmitting = true;
+
+      stopInactivityTimer();
+
       const requestBody =
         new FormData();
 
@@ -460,6 +614,8 @@
 
       } catch (error) {
 
+        isSubmitting = false;
+
         console.error(
           "Pandrol form submission failed:",
           error
@@ -467,6 +623,8 @@
 
         status.textContent =
           "We couldn’t submit your details. Please check the connection and try again.";
+
+        resetInactivityTimer();
 
       } finally {
 
@@ -488,5 +646,62 @@
       );
     }
   );
+
+  returnHomeButton.addEventListener(
+    "click",
+    () => {
+
+      if (
+        formHasEnteredData() &&
+        !window.confirm(
+          "Return to the home screen? Any information entered on this form will be cleared."
+        )
+      ) {
+
+        resetInactivityTimer();
+
+        return;
+      }
+
+      returnToHome();
+    }
+  );
+
+  [
+    "pointerdown",
+    "touchstart",
+    "click",
+    "keydown",
+    "input",
+    "change"
+  ].forEach((eventName) => {
+
+    document.addEventListener(
+      eventName,
+      resetInactivityTimer,
+      {
+        capture: true,
+        passive: true
+      }
+    );
+  });
+
+  window.addEventListener(
+    "scroll",
+    resetInactivityTimer,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "pagehide",
+    stopInactivityTimer
+  );
+
+  window.addEventListener(
+    "pageshow",
+    resetInactivityTimer
+  );
+
+  resetInactivityTimer();
 
 })();
