@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T12:34:02.771Z",
+  "generatedAt": "2026-08-25T13:33:25.814Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "7 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "6 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Stand integration and production",
@@ -32,15 +32,9 @@
   },
   "progress": {
     "percent": 27.1,
-    "detail": "46 of 116 tasks verified complete"
+    "detail": "48 of 117 tasks verified complete"
   },
   "clientAttention": [
-    {
-      "name": "2.5.1 – Engineer lightweight sleeper and rail display mock-ups",
-      "type": "Action",
-      "dueDate": "2026-08-21T02:00:00.000Z",
-      "tone": "red"
-    },
     {
       "name": "2.11 – Develop stand marketing concept, messaging and engagement plan",
       "type": "Action",
@@ -82,6 +76,12 @@
       "type": "Action",
       "dueDate": "2026-09-04T02:00:00.000Z",
       "tone": "amber"
+    },
+    {
+      "name": "2.7.7 – Fabricate and assemble welding display",
+      "type": "Action",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "tone": "amber"
     }
   ],
   "deliveryKpis": [
@@ -101,7 +101,7 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "7",
+      "value": "6",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
