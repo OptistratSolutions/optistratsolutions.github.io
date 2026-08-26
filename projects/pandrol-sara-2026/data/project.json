@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T20:26:22.867Z",
+  "generatedAt": "2026-08-26T23:55:36.241Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -136,10 +136,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "73%",
+      "value": "74%",
       "status": "Recovery",
       "tone": "red",
-      "detail": "33 of 45 due tasks completed on time"
+      "detail": "34 of 46 due tasks completed on time"
     }
   ],
   "milestones": [
