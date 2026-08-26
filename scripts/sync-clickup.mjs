@@ -166,9 +166,24 @@ function currency(value) {
   return new Intl.NumberFormat("en-ZA", {style: "currency", currency: "ZAR", maximumFractionDigits: 0}).format(value);
 }
 
-const parentTask = await api(`/task/${config.projectTaskId}`);
 const allTasks = await getListTasks(config.listId);
+const configuredProjectTask = allTasks.find((task) => String(task.id) === String(config.projectTaskId));
+if (!configuredProjectTask) {
+  throw new Error(
+    `Pandrol dashboard sync aborted: configured project task ${config.projectTaskId} was not found in ClickUp List ${config.listId}. ` +
+    "The ClickUp project/List configuration may have changed. Existing dashboard snapshot was preserved."
+  );
+}
+
 const tasks = selectProjectTree(allTasks, config.projectTaskId);
+if (tasks.length === 0) {
+  throw new Error(
+    `Pandrol dashboard sync aborted: project task ${config.projectTaskId} unexpectedly returned zero child tasks from ClickUp List ${config.listId}. ` +
+    "The ClickUp project/List configuration may have changed. Existing dashboard snapshot was preserved."
+  );
+}
+
+const parentTask = await api(`/task/${config.projectTaskId}`);
 const milestones = buildMilestones(tasks);
 const nextMilestone = milestones.find((item) => !item.complete) || null;
 const phase = projectPhase();
