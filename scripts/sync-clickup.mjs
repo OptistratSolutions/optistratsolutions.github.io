@@ -167,23 +167,16 @@ function currency(value) {
 }
 
 const allTasks = await getListTasks(config.listId);
-const configuredProjectTask = allTasks.find((task) => String(task.id) === String(config.projectTaskId));
-if (!configuredProjectTask) {
+const tasks = allTasks.filter((task) => !task.archived);
+const minimumProjectTaskCount = 50;
+if (tasks.length < minimumProjectTaskCount) {
   throw new Error(
-    `Pandrol dashboard sync aborted: configured project task ${config.projectTaskId} was not found in ClickUp List ${config.listId}. ` +
-    "The ClickUp project/List configuration may have changed. Existing dashboard snapshot was preserved."
+    `Pandrol dashboard sync aborted: ClickUp List ${config.listId} returned only ${tasks.length} project tasks; expected at least ${minimumProjectTaskCount}. ` +
+    "The ClickUp List configuration or project structure may have changed. Existing dashboard snapshot was preserved."
   );
 }
 
-const tasks = selectProjectTree(allTasks, config.projectTaskId);
-if (tasks.length === 0) {
-  throw new Error(
-    `Pandrol dashboard sync aborted: project task ${config.projectTaskId} unexpectedly returned zero child tasks from ClickUp List ${config.listId}. ` +
-    "The ClickUp project/List configuration may have changed. Existing dashboard snapshot was preserved."
-  );
-}
-
-const parentTask = await api(`/task/${config.projectTaskId}`);
+const parentTask = tasks.find((task) => String(task.id) === String(config.projectTaskId)) || {custom_fields: []};
 const milestones = buildMilestones(tasks);
 const nextMilestone = milestones.find((item) => !item.complete) || null;
 const phase = projectPhase();
