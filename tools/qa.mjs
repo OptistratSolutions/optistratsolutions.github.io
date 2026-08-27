@@ -56,7 +56,7 @@ for (const page of publicPages) {
 
 const allPublicHtml = (await Promise.all(publicPages.map(loadPage))).join('\n');
 const requiredLinks = [
-  'https://forms.clickup.com/9005033045/f/8cbvtjn-18752/3LKGNJRJUHH1JIBOLT',
+  '/contact/#project-enquiry',
   'https://wa.me/27614555652',
   'tel:+27614555652',
   'mailto:jennifer.vl@optistratsolutions.co.za'
@@ -65,6 +65,14 @@ const requiredLinks = [
 for (const link of requiredLinks) {
   if (!allPublicHtml.includes(link)) failures.push(`required contact link not found: ${link}`);
 }
+
+const contactHtml = await loadPage('contact/index.html');
+const enquiryScript = await readFile(resolve(root, 'assets/js/enquiry-form.js'), 'utf8');
+
+if (!contactHtml.includes('id="project-enquiry-form"')) failures.push('contact/index.html: missing native project enquiry form');
+if (!contactHtml.includes('/assets/js/enquiry-form.js')) failures.push('contact/index.html: missing enquiry form script');
+if (!enquiryScript.includes('/forms/8cbvtjn-18752/submit')) failures.push('assets/js/enquiry-form.js: missing project enquiry submission endpoint');
+if (allPublicHtml.includes('forms.clickup.com/9005033045/f/8cbvtjn-18752')) failures.push('public pages must not send visitors to the external ClickUp form');
 
 if (failures.length) {
   console.error(failures.join('\n'));
