@@ -1,0 +1,9 @@
+{
+  "name": "optistrat-public-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/preview-server.mjs",
+    "test": "node tools/qa.mjs"
+  }
+}
