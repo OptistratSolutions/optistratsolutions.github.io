@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T06:46:26.786Z",
+  "generatedAt": "2026-08-27T12:46:00.543Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -32,7 +32,7 @@
   },
   "progress": {
     "percent": 31.8,
-    "detail": "56 of 117 tasks verified complete"
+    "detail": "57 of 118 tasks verified complete"
   },
   "clientAttention": [
     {
@@ -40,12 +40,6 @@
       "type": "Action",
       "dueDate": "2026-08-21T02:00:00.000Z",
       "tone": "red"
-    },
-    {
-      "name": "2.2 – Plan stand pre-assembly, inspection and acceptance",
-      "type": "Approval",
-      "dueDate": "2026-08-28T02:00:00.000Z",
-      "tone": "amber"
     },
     {
       "name": "2.7.9 – Fabricate and assemble ultrasonic display",
@@ -80,6 +74,12 @@
     {
       "name": "2.12.2 – Design and approve SARA 2026 email banner",
       "type": "Approval",
+      "dueDate": "2026-09-04T02:00:00.000Z",
+      "tone": "amber"
+    },
+    {
+      "name": "2.16.2 – Confirm stand announcements and panel moderator plan",
+      "type": "Action",
       "dueDate": "2026-09-04T02:00:00.000Z",
       "tone": "amber"
     }
@@ -255,6 +255,11 @@
       "status": "planning"
     },
     {
+      "name": "2.8.1 – Approve and procure additional MIPRO MA300 wireless PA system",
+      "dueDate": "2026-09-01T02:00:00.000Z",
+      "status": "awaiting information"
+    },
+    {
       "name": "2.7.9 – Fabricate and assemble ultrasonic display",
       "dueDate": "2026-09-04T02:00:00.000Z",
       "status": "in progress"
@@ -278,11 +283,6 @@
       "name": "2.12.5 – Verify, produce and integrate product QR-code display signage",
       "dueDate": "2026-09-04T02:00:00.000Z",
       "status": "planning"
-    },
-    {
-      "name": "2.12.3 – Redesign and approve SADC business wall map / stand marketing wall graphic",
-      "dueDate": "2026-09-04T02:00:00.000Z",
-      "status": "review / close out"
     }
   ],
   "publishedRisksIssues": [],
