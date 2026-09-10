@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-10T14:59:56.808Z",
+  "generatedAt": "2026-09-10T18:15:23.982Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -252,7 +252,7 @@
     {
       "name": "2.16.3 – Develop presentation programme and countdown/announcement display",
       "dueDate": "2026-09-11T02:00:00.000Z",
-      "status": "in progress"
+      "status": "review / close out"
     },
     {
       "name": "3.1.13 – Confirm passes, contractor access, parking and vehicle details",
