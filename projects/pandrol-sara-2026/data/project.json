@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-11T05:56:34.760Z",
+  "generatedAt": "2026-09-11T08:22:57.221Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -108,9 +108,9 @@
     },
     {
       "label": "Risk exposure",
-      "value": "No published highs",
-      "status": "Controlled",
-      "tone": "green",
+      "value": "6 published",
+      "status": "Elevated",
+      "tone": "red",
       "detail": "Only explicitly client-visible risks and issues"
     },
     {
@@ -285,7 +285,56 @@
       "status": "planning"
     }
   ],
-  "publishedRisksIssues": [],
+  "publishedRisksIssues": [
+    {
+      "name": "2.8.1 – Approve and procure additional MIPRO MA300 wireless PA system",
+      "type": "Issue",
+      "rating": "high",
+      "status": "in progress",
+      "response": "in progress",
+      "tone": "red"
+    },
+    {
+      "name": "2.7.10 – Build, program and integrate Arduino welding-light simulation",
+      "type": "Issue",
+      "rating": "urgent",
+      "status": "in progress",
+      "response": "in progress",
+      "tone": "red"
+    },
+    {
+      "name": "2.16.1 – Develop practical exhibition clothing and Name tags",
+      "type": "Risk",
+      "rating": "normal",
+      "status": "awaiting client",
+      "response": "awaiting client",
+      "tone": "amber"
+    },
+    {
+      "name": "3.4 – Complete exhibition HSE risk assessment and operating controls",
+      "type": "Risk",
+      "rating": "urgent",
+      "status": "awaiting supplier",
+      "response": "awaiting supplier",
+      "tone": "red"
+    },
+    {
+      "name": "2.13 – Evaluate, approve, order and inspect branded client gifts",
+      "type": "Issue",
+      "rating": "high",
+      "status": "in progress",
+      "response": "in progress",
+      "tone": "red"
+    },
+    {
+      "name": "2.12 – Design and produce printed/digital collateral",
+      "type": "Risk",
+      "rating": "normal",
+      "status": "planning",
+      "response": "planning",
+      "tone": "amber"
+    }
+  ],
   "readiness": {
     "percent": 0,
     "label": "Recovery required",
