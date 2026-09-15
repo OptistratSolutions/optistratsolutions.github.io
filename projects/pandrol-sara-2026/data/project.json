@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T05:38:54.698Z",
+  "generatedAt": "2026-09-15T10:27:50.588Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "11 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "10 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Stand integration and production",
@@ -32,7 +32,7 @@
   },
   "progress": {
     "percent": 42.1,
-    "detail": "69 of 119 tasks verified complete"
+    "detail": "70 of 119 tasks verified complete"
   },
   "clientAttention": [
     {
@@ -101,7 +101,7 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "11",
+      "value": "10",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
