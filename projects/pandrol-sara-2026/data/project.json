@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-17T16:57:12.683Z",
+  "generatedAt": "2026-09-17T19:59:47.736Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -298,8 +298,8 @@
       "name": "2.7.10 – Build, program and integrate Arduino welding-light simulation",
       "type": "Issue",
       "rating": "urgent",
-      "status": "in progress",
-      "response": "in progress",
+      "status": "review / close out",
+      "response": "review / close out",
       "tone": "red"
     },
     {
