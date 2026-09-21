@@ -128,12 +128,17 @@ function projectPhase() {
 
 function taskProgress(tasks) {
   const eligible = tasks.filter((task) => !task.archived);
-  const weighted = eligible.map((task) => ({task, weight: Math.max(1, Number(task.time_estimate || 0))}));
-  const total = weighted.reduce((sum, item) => sum + item.weight, 0);
-  const complete = weighted.filter(({task}) => isDone(task)).reduce((sum, item) => sum + item.weight, 0);
+  const summaryTaskIds = new Set(
+    eligible
+      .map((task) => parentId(task))
+      .filter(Boolean)
+  );
+  const executable = eligible.filter((task) => !summaryTaskIds.has(String(task.id)));
+  const complete = executable.filter((task) => isDone(task)).length;
+
   return {
-    percent: total ? Math.round((complete / total) * 1000) / 10 : 0,
-    detail: `${weighted.filter(({task}) => isDone(task)).length} of ${eligible.length} tasks verified complete`
+    percent: executable.length ? Math.round((complete / executable.length) * 1000) / 10 : 0,
+    detail: `${complete} of ${executable.length} executable tasks complete · unweighted by time estimates`
   };
 }
 
