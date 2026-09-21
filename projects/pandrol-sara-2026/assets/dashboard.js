@@ -183,3 +183,10 @@ async function loadDashboard() {
 }
 
 loadDashboard();
+
+// Keep an open dashboard current without requiring a manual browser refresh.
+const DASHBOARD_REFRESH_MS = 60_000;
+setInterval(loadDashboard, DASHBOARD_REFRESH_MS);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) loadDashboard();
+});
