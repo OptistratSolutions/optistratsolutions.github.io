@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T07:08:54.786Z",
+  "generatedAt": "2026-09-22T12:35:24.909Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "12 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "8 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Readiness and assurance",
@@ -31,8 +31,8 @@
     "state": "next"
   },
   "progress": {
-    "percent": 65.1,
-    "detail": "71 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 70.6,
+    "detail": "77 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [
     {
@@ -81,10 +81,10 @@
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
-      "value": "50%",
+      "value": "75%",
       "status": "Below target",
       "tone": "red",
-      "detail": "2 of 4 due critical gates achieved"
+      "detail": "3 of 4 due critical gates achieved"
     },
     {
       "label": "Budget status",
@@ -95,14 +95,14 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "12",
+      "value": "8",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
     },
     {
       "label": "Risk exposure",
-      "value": "6 published",
+      "value": "5 published",
       "status": "Elevated",
       "tone": "red",
       "detail": "Only explicitly client-visible risks and issues"
@@ -116,7 +116,7 @@
     },
     {
       "label": "Readiness pass rate",
-      "value": "0%",
+      "value": "33%",
       "status": "Building",
       "tone": "red",
       "detail": "Accepted checks at active readiness gates"
@@ -167,11 +167,11 @@
     {
       "name": "60% readiness review",
       "date": "2026-09-18T02:00:00.000Z",
-      "complete": false,
-      "overdue": true,
+      "complete": true,
+      "overdue": false,
       "unlinked": false,
-      "note": "Overdue",
-      "state": "upcoming"
+      "note": "Achieved",
+      "state": "complete"
     },
     {
       "name": "Production/content freeze",
@@ -259,24 +259,24 @@
       "status": "in progress"
     },
     {
-      "name": "3.1.11 – Submit custom-stand drawing and structural pack (SARA deadline 30 Sep)",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
       "name": "3.8 – Complete production/content freeze, proofs and quality acceptance",
       "dueDate": "2026-09-25T02:00:00.000Z",
       "status": "in progress"
     },
     {
-      "name": "3.4 – Complete exhibition HSE risk assessment and operating controls",
+      "name": "2.13 – Evaluate, approve, order and inspect branded client gifts",
       "dueDate": "2026-09-25T02:00:00.000Z",
       "status": "awaiting supplier"
     },
     {
-      "name": "2.13 – Evaluate, approve, order and inspect branded client gifts",
+      "name": "2.12 – Design and produce printed/digital collateral",
       "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "awaiting supplier"
+      "status": "awaiting client"
+    },
+    {
+      "name": "2.7 – Engineer demonstration requirements, approvals and safety",
+      "dueDate": "2026-09-25T02:00:00.000Z",
+      "status": "in progress"
     }
   ],
   "publishedRisksIssues": [
@@ -295,14 +295,6 @@
       "status": "in progress",
       "response": "in progress",
       "tone": "amber"
-    },
-    {
-      "name": "3.4 – Complete exhibition HSE risk assessment and operating controls",
-      "type": "Risk",
-      "rating": "urgent",
-      "status": "awaiting supplier",
-      "response": "awaiting supplier",
-      "tone": "red"
     },
     {
       "name": "2.12 – Design and produce printed/digital collateral",
@@ -330,8 +322,8 @@
     }
   ],
   "readiness": {
-    "percent": 0,
+    "percent": 33,
     "label": "Recovery required",
-    "note": "0 of 3 due readiness checks passed."
+    "note": "1 of 3 due readiness checks passed."
   }
 }
