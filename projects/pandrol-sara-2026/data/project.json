@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T19:33:16.430Z",
+  "generatedAt": "2026-09-25T22:48:44.622Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "8 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "15 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Readiness and assurance",
@@ -57,34 +57,34 @@
       "name": "2.7.10 – Build, program and integrate Arduino welding-light simulation",
       "type": "Action",
       "dueDate": "2026-09-25T02:00:00.000Z",
-      "tone": "amber"
+      "tone": "red"
     },
     {
       "name": "2.7.9 – Fabricate and assemble ultrasonic display",
       "type": "Action",
       "dueDate": "2026-09-25T02:00:00.000Z",
-      "tone": "amber"
+      "tone": "red"
     },
     {
       "name": "2.7.8 – Fabricate sleeper and rail anti-theft display",
       "type": "Action",
       "dueDate": "2026-09-25T02:00:00.000Z",
-      "tone": "amber"
+      "tone": "red"
     },
     {
       "name": "2.7.7 – Fabricate and assemble welding display",
       "type": "Action",
       "dueDate": "2026-09-25T02:00:00.000Z",
-      "tone": "amber"
+      "tone": "red"
     }
   ],
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
-      "value": "75%",
+      "value": "60%",
       "status": "Below target",
       "tone": "red",
-      "detail": "3 of 4 due critical gates achieved"
+      "detail": "3 of 5 due critical gates achieved"
     },
     {
       "label": "Budget status",
@@ -95,7 +95,7 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "8",
+      "value": "15",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
@@ -109,14 +109,14 @@
     },
     {
       "label": "Supplier OTIF",
-      "value": "Not active",
-      "status": "Future phase",
-      "tone": "neutral",
-      "detail": "Activates when supplier deliveries fall due"
+      "value": "0%",
+      "status": "Below target",
+      "tone": "red",
+      "detail": "0 of 2 due deliveries on time"
     },
     {
       "label": "Readiness pass rate",
-      "value": "33%",
+      "value": "50%",
       "status": "Building",
       "tone": "red",
       "detail": "Accepted checks at active readiness gates"
@@ -130,10 +130,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "60%",
+      "value": "57%",
       "status": "Recovery",
       "tone": "red",
-      "detail": "51 of 85 due tasks completed on time"
+      "detail": "56 of 98 due tasks completed on time"
     }
   ],
   "milestones": [
@@ -177,9 +177,9 @@
       "name": "Production/content freeze",
       "date": "2026-09-25T02:00:00.000Z",
       "complete": false,
-      "overdue": false,
+      "overdue": true,
       "unlinked": false,
-      "note": "in progress",
+      "note": "Overdue",
       "state": "upcoming"
     },
     {
@@ -239,43 +239,28 @@
   ],
   "upcomingDeadlines": [
     {
-      "name": "2.7.10 – Build, program and integrate Arduino welding-light simulation",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "review / close out"
+      "name": "3.13 – Conduct 90% integrated readiness review",
+      "dueDate": "2026-10-02T02:00:00.000Z",
+      "status": "planning"
     },
     {
-      "name": "2.7.9 – Fabricate and assemble ultrasonic display",
-      "dueDate": "2026-09-25T02:00:00.000Z",
+      "name": "3.5 – Control product/equipment inventory, security and asset custody",
+      "dueDate": "2026-10-02T02:00:00.000Z",
       "status": "in progress"
     },
     {
-      "name": "2.7.8 – Fabricate sleeper and rail anti-theft display",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "in progress"
+      "name": "2.4 – Close stand snags and create component/packing register",
+      "dueDate": "2026-10-02T02:00:00.000Z",
+      "status": "planning"
     },
     {
-      "name": "2.7.7 – Fabricate and assemble welding display",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "in progress"
+      "name": "3.14 – Complete final rehearsal, exhibition-ready gate and go/no-go",
+      "dueDate": "2026-10-09T02:00:00.000Z",
+      "status": "approval pending"
     },
     {
-      "name": "3.8 – Complete production/content freeze, proofs and quality acceptance",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "in progress"
-    },
-    {
-      "name": "2.13 – Evaluate, approve, order and inspect branded client gifts",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "awaiting supplier"
-    },
-    {
-      "name": "2.12 – Design and produce printed/digital collateral",
-      "dueDate": "2026-09-25T02:00:00.000Z",
-      "status": "awaiting client"
-    },
-    {
-      "name": "2.7 – Engineer demonstration requirements, approvals and safety",
-      "dueDate": "2026-09-25T02:00:00.000Z",
+      "name": "3.1 – Complete organiser submissions, passes and venue compliance",
+      "dueDate": "2026-10-09T02:00:00.000Z",
       "status": "in progress"
     }
   ],
@@ -322,8 +307,8 @@
     }
   ],
   "readiness": {
-    "percent": 33,
+    "percent": 50,
     "label": "Recovery required",
-    "note": "1 of 3 due readiness checks passed."
+    "note": "3 of 6 due readiness checks passed."
   }
 }
