@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T04:10:04.787Z",
+  "generatedAt": "2026-09-28T10:51:22.098Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "15 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "14 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Readiness and assurance",
@@ -31,16 +31,10 @@
     "state": "next"
   },
   "progress": {
-    "percent": 70.6,
-    "detail": "77 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 72.5,
+    "detail": "79 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [
-    {
-      "name": "2.16.2 – Confirm stand announcements and panel moderator plan",
-      "type": "Action",
-      "dueDate": "2026-09-04T02:00:00.000Z",
-      "tone": "red"
-    },
     {
       "name": "2.7.11 – Complete integrated display testing and acceptance",
       "type": "Action",
@@ -95,7 +89,7 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "15",
+      "value": "14",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
