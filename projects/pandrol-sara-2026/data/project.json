@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T09:02:40.055Z",
+  "generatedAt": "2026-09-29T15:47:52.772Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -295,8 +295,8 @@
       "name": "2.3 – Conduct full stand pre-assembly and snag inspection",
       "type": "Risk",
       "rating": "urgent",
-      "status": "awaiting supplier",
-      "response": "awaiting supplier",
+      "status": "review / close out",
+      "response": "review / close out",
       "tone": "red"
     }
   ],
