@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T08:46:39.235Z",
+  "generatedAt": "2026-10-04T14:32:34.328Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -13,7 +13,7 @@
   "health": {
     "rag": "red",
     "label": "Intervention required",
-    "summary": "17 overdue high-priority actions require recovery or an approved rebaseline."
+    "summary": "16 overdue high-priority actions require recovery or an approved rebaseline."
   },
   "phase": {
     "name": "Readiness and assurance",
@@ -22,8 +22,8 @@
     "to": "2026-10-19"
   },
   "nextMilestone": {
-    "name": "Stand dry-build",
-    "date": "2026-09-18T02:00:00.000Z",
+    "name": "Production/content freeze",
+    "date": "2026-09-25T02:00:00.000Z",
     "complete": false,
     "overdue": true,
     "unlinked": false,
@@ -31,8 +31,8 @@
     "state": "next"
   },
   "progress": {
-    "percent": 73.4,
-    "detail": "80 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 74.3,
+    "detail": "81 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [
     {
@@ -81,10 +81,10 @@
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
-      "value": "43%",
+      "value": "57%",
       "status": "Below target",
       "tone": "red",
-      "detail": "3 of 7 due critical gates achieved"
+      "detail": "4 of 7 due critical gates achieved"
     },
     {
       "label": "Budget status",
@@ -95,7 +95,7 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "17",
+      "value": "16",
       "status": "Action",
       "tone": "red",
       "detail": "High or urgent incomplete actions past due"
@@ -116,7 +116,7 @@
     },
     {
       "label": "Readiness pass rate",
-      "value": "38%",
+      "value": "50%",
       "status": "Building",
       "tone": "red",
       "detail": "Accepted checks at active readiness gates"
@@ -158,11 +158,11 @@
     {
       "name": "Stand dry-build",
       "date": "2026-09-18T02:00:00.000Z",
-      "complete": false,
-      "overdue": true,
+      "complete": true,
+      "overdue": false,
       "unlinked": false,
-      "note": "Overdue",
-      "state": "next"
+      "note": "Achieved",
+      "state": "complete"
     },
     {
       "name": "60% readiness review",
@@ -180,7 +180,7 @@
       "overdue": true,
       "unlinked": false,
       "note": "Overdue",
-      "state": "upcoming"
+      "state": "next"
     },
     {
       "name": "Stand snags closed",
@@ -246,7 +246,7 @@
     {
       "name": "3.1 – Complete organiser submissions, passes and venue compliance",
       "dueDate": "2026-10-09T02:00:00.000Z",
-      "status": "in progress"
+      "status": "review / close out"
     },
     {
       "name": "3.15 – Pack, dispatch and confirm site-delivery readiness",
@@ -289,8 +289,8 @@
     }
   ],
   "readiness": {
-    "percent": 38,
+    "percent": 50,
     "label": "Recovery required",
-    "note": "3 of 8 due readiness checks passed."
+    "note": "4 of 8 due readiness checks passed."
   }
 }
