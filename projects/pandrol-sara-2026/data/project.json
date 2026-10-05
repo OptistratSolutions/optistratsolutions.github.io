@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T21:43:32.080Z",
+  "generatedAt": "2026-10-05T00:11:16.864Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -252,6 +252,26 @@
       "name": "3.15 – Pack, dispatch and confirm site-delivery readiness",
       "dueDate": "2026-10-16T02:00:00.000Z",
       "status": "approval pending"
+    },
+    {
+      "name": "3.1.21 – Confirm overall JHB EMS Certificate of Fitness before opening",
+      "dueDate": "2026-10-19T02:00:00.000Z",
+      "status": "review / close out"
+    },
+    {
+      "name": "3.1.19 – Obtain required fire-retardant, structural, rigging and electrical certificates",
+      "dueDate": "2026-10-19T02:00:00.000Z",
+      "status": "review / close out"
+    },
+    {
+      "name": "4.1 – Manage on-site setup, integration, snagging and handover",
+      "dueDate": "2026-10-19T02:00:00.000Z",
+      "status": "planning"
+    },
+    {
+      "name": "2.16 – Plan stand staffing, scripts, training and rehearsals",
+      "dueDate": "2026-10-19T02:00:00.000Z",
+      "status": "in progress"
     }
   ],
   "publishedRisksIssues": [
