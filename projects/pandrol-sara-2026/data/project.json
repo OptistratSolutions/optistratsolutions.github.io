@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T18:27:30.730Z",
+  "generatedAt": "2026-10-13T00:54:10.525Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -262,6 +262,11 @@
       "name": "4.3 – Manage breakdown, return logistics and asset reconciliation",
       "dueDate": "2026-10-24T02:00:00.000Z",
       "status": "planning"
+    },
+    {
+      "name": "4.4 – Clean, qualify and hand over leads for follow-up",
+      "dueDate": "2026-10-27T02:00:00.000Z",
+      "status": "on hold"
     }
   ],
   "publishedRisksIssues": [
