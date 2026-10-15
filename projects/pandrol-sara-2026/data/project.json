@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T21:37:18.408Z",
+  "generatedAt": "2026-10-15T23:51:25.629Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -236,6 +236,16 @@
     {
       "name": "4.5 – Reconcile supplier invoices, commitments and final budget",
       "dueDate": "2026-10-29T02:00:00.000Z",
+      "status": "on hold"
+    },
+    {
+      "name": "4.6 – Analyse KPIs and issue the exhibition results report",
+      "dueDate": "2026-10-30T02:00:00.000Z",
+      "status": "on hold"
+    },
+    {
+      "name": "4.7 – Complete lessons learned, handover and formal close-out",
+      "dueDate": "2026-10-30T02:00:00.000Z",
       "status": "on hold"
     }
   ],
