@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T07:30:52.107Z",
+  "generatedAt": "2026-10-16T10:56:24.199Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -22,17 +22,17 @@
     "to": "2026-10-19"
   },
   "nextMilestone": {
-    "name": "Packing and dispatch complete",
-    "date": "2026-10-16T02:00:00.000Z",
+    "name": "SARA exhibition",
+    "date": "2026-10-23T02:00:00.000Z",
     "complete": false,
     "overdue": false,
     "unlinked": false,
-    "note": "approval pending",
+    "note": "in progress",
     "state": "next"
   },
   "progress": {
-    "percent": 90.8,
-    "detail": "99 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 92.7,
+    "detail": "101 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [],
   "deliveryKpis": [
@@ -66,10 +66,10 @@
     },
     {
       "label": "Supplier OTIF",
-      "value": "0%",
-      "status": "Below target",
-      "tone": "red",
-      "detail": "0 of 2 due deliveries on time"
+      "value": "Not active",
+      "status": "Future phase",
+      "tone": "neutral",
+      "detail": "Activates when supplier deliveries fall due"
     },
     {
       "label": "Readiness pass rate",
@@ -87,10 +87,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "55%",
-      "status": "Recovery",
-      "tone": "red",
-      "detail": "57 of 104 due tasks completed on time"
+      "value": "100%",
+      "status": "On target",
+      "tone": "green",
+      "detail": "104 of 104 due tasks complete · 0 overdue actions"
     }
   ],
   "milestones": [
@@ -169,11 +169,11 @@
     {
       "name": "Packing and dispatch complete",
       "date": "2026-10-16T02:00:00.000Z",
-      "complete": false,
+      "complete": true,
       "overdue": false,
       "unlinked": false,
-      "note": "approval pending",
-      "state": "next"
+      "note": "Achieved",
+      "state": "complete"
     },
     {
       "name": "SARA exhibition",
@@ -181,8 +181,8 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "planning",
-      "state": "upcoming"
+      "note": "in progress",
+      "state": "next"
     },
     {
       "name": "Project close-out",
@@ -196,19 +196,14 @@
   ],
   "upcomingDeadlines": [
     {
-      "name": "3.15 – Pack, dispatch and confirm site-delivery readiness",
-      "dueDate": "2026-10-16T02:00:00.000Z",
-      "status": "approval pending"
-    },
-    {
       "name": "4.1 – Manage on-site setup, integration, snagging and handover",
       "dueDate": "2026-10-19T02:00:00.000Z",
-      "status": "planning"
+      "status": "in progress"
     },
     {
       "name": "4.2 – Lead exhibition operations and daily KPI/issue control",
       "dueDate": "2026-10-23T02:00:00.000Z",
-      "status": "planning"
+      "status": "in progress"
     },
     {
       "name": "4.3 – Manage breakdown, return logistics and asset reconciliation",
@@ -240,6 +235,6 @@
   "readiness": {
     "percent": 100,
     "label": "Ready for current gate",
-    "note": "9 of 9 due readiness checks passed."
+    "note": "7 of 7 due readiness checks passed."
   }
 }
