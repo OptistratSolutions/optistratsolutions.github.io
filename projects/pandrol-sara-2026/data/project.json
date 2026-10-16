@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T02:37:17.000Z",
+  "generatedAt": "2026-10-16T07:30:52.107Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -11,9 +11,9 @@
     "closeOut": "2026-10-30T17:00:00+02:00"
   },
   "health": {
-    "rag": "red",
-    "label": "Intervention required",
-    "summary": "4 overdue high-priority actions require recovery or an approved rebaseline."
+    "rag": "green",
+    "label": "On track",
+    "summary": "No critical schedule exception is currently visible in the published project data."
   },
   "phase": {
     "name": "Readiness and assurance",
@@ -31,23 +31,10 @@
     "state": "next"
   },
   "progress": {
-    "percent": 89,
-    "detail": "97 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 90.8,
+    "detail": "99 of 109 executable tasks complete · unweighted by time estimates"
   },
-  "clientAttention": [
-    {
-      "name": "2.8 – Specify, source and test Five-screen playback system",
-      "type": "Action",
-      "dueDate": "2026-09-04T02:00:00.000Z",
-      "tone": "red"
-    },
-    {
-      "name": "2.7.11 – Complete integrated display testing and acceptance",
-      "type": "Action",
-      "dueDate": "2026-09-11T02:00:00.000Z",
-      "tone": "red"
-    }
-  ],
+  "clientAttention": [],
   "deliveryKpis": [
     {
       "label": "Milestone adherence",
@@ -65,16 +52,16 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "4",
-      "status": "Action",
-      "tone": "red",
+      "value": "0",
+      "status": "Clear",
+      "tone": "green",
       "detail": "High or urgent incomplete actions past due"
     },
     {
       "label": "Risk exposure",
-      "value": "1 published",
-      "status": "Elevated",
-      "tone": "red",
+      "value": "No published highs",
+      "status": "Controlled",
+      "tone": "green",
       "detail": "Only explicitly client-visible risks and issues"
     },
     {
@@ -86,9 +73,9 @@
     },
     {
       "label": "Readiness pass rate",
-      "value": "89%",
-      "status": "Building",
-      "tone": "amber",
+      "value": "100%",
+      "status": "On target",
+      "tone": "green",
       "detail": "Accepted checks at active readiness gates"
     },
     {
@@ -249,19 +236,10 @@
       "status": "on hold"
     }
   ],
-  "publishedRisksIssues": [
-    {
-      "name": "2.8 – Specify, source and test Five-screen playback system",
-      "type": "Issue",
-      "rating": "high",
-      "status": "awaiting client",
-      "response": "awaiting client",
-      "tone": "red"
-    }
-  ],
+  "publishedRisksIssues": [],
   "readiness": {
-    "percent": 89,
-    "label": "Building to gate",
-    "note": "8 of 9 due readiness checks passed."
+    "percent": 100,
+    "label": "Ready for current gate",
+    "note": "9 of 9 due readiness checks passed."
   }
 }
