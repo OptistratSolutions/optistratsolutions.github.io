@@ -213,8 +213,10 @@ const publishedRisksIssues = openTasks
   }));
 
 const dueTasks = tasks.filter((task) => isPastProjectDay(task.due_date));
-const onTimeDue = dueTasks.filter(completedOnOrBeforeDueDay);
-const scheduleAdherence = dueTasks.length ? Math.round((onTimeDue.length / dueTasks.length) * 100) : null;
+const completedDueTasks = dueTasks.filter(isDone);
+// Current schedule health measures whether work due so far has been completed.
+// Historical closure timing is not the same as outstanding schedule exposure.
+const scheduleHealth = dueTasks.length ? Math.round((completedDueTasks.length / dueTasks.length) * 100) : null;
 const dueMilestones = milestones.filter((item) => isPastProjectDay(item.date));
 const onTimeMilestones = dueMilestones.filter((item) => item.complete);
 const milestoneAdherence = dueMilestones.length ? Math.round((onTimeMilestones.length / dueMilestones.length) * 100) : null;
@@ -277,7 +279,7 @@ const snapshot = {
     {label: "Supplier OTIF", value: supplierOtif === null ? "Not active" : `${supplierOtif}%`, status: supplierOtif === null ? "Future phase" : supplierOtif >= 95 ? "On target" : "Below target", tone: supplierOtif === null ? "neutral" : toneForPercent(supplierOtif, 95, 85), detail: supplierDue.length ? `${supplierOnTime.length} of ${supplierDue.length} due deliveries on time` : "Activates when supplier deliveries fall due"},
     {label: "Readiness pass rate", value: readinessPercent === null ? "Not active" : `${readinessPercent}%`, status: readinessPercent === null ? "Future gate" : readinessPercent >= 90 ? "On target" : "Building", tone: readinessPercent === null ? "neutral" : toneForPercent(readinessPercent, 90, 60), detail: "Accepted checks at active readiness gates"},
     {label: "Change volume", value: String(changeTasks.length), status: changeTasks.filter((task) => !isDone(task)).length ? "Open changes" : "Controlled", tone: changeTasks.filter((task) => !isDone(task)).length ? "amber" : "green", detail: `${changeTasks.filter((task) => !isDone(task)).length} open change request${changeTasks.filter((task) => !isDone(task)).length === 1 ? "" : "s"}`},
-    {label: "Schedule health", value: scheduleAdherence === null ? "Not yet due" : `${scheduleAdherence}%`, status: scheduleAdherence === null ? "Future work" : scheduleAdherence >= 90 ? "On target" : "Recovery", tone: scheduleAdherence === null ? "neutral" : toneForPercent(scheduleAdherence, 90, 75), detail: `${onTimeDue.length} of ${dueTasks.length} due tasks completed on time`}
+    {label: "Schedule health", value: scheduleHealth === null ? "Not yet due" : `${scheduleHealth}%`, status: scheduleHealth === null ? "Future work" : scheduleHealth >= 90 ? "On target" : "Recovery", tone: scheduleHealth === null ? "neutral" : toneForPercent(scheduleHealth, 90, 75), detail: `${completedDueTasks.length} of ${dueTasks.length} due tasks complete · ${overdue.length} overdue actions`}
   ],
   milestones,
   upcomingDeadlines,
