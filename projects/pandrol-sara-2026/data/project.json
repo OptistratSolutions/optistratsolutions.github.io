@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T07:14:58.358Z",
+  "generatedAt": "2026-10-20T12:45:17.476Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -11,9 +11,9 @@
     "closeOut": "2026-10-30T17:00:00+02:00"
   },
   "health": {
-    "rag": "red",
-    "label": "Intervention required",
-    "summary": "1 overdue high-priority action require recovery or an approved rebaseline."
+    "rag": "green",
+    "label": "On track",
+    "summary": "No critical schedule exception is currently visible in the published project data."
   },
   "phase": {
     "name": "Event delivery",
@@ -31,8 +31,8 @@
     "state": "next"
   },
   "progress": {
-    "percent": 92.7,
-    "detail": "101 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 93.6,
+    "detail": "102 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [],
   "deliveryKpis": [
@@ -52,9 +52,9 @@
     },
     {
       "label": "Overdue critical actions",
-      "value": "1",
-      "status": "Action",
-      "tone": "red",
+      "value": "0",
+      "status": "Clear",
+      "tone": "green",
       "detail": "High or urgent incomplete actions past due"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "label": "Readiness pass rate",
-      "value": "91%",
+      "value": "100%",
       "status": "On target",
       "tone": "green",
       "detail": "Accepted checks at active readiness gates"
@@ -87,10 +87,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "99%",
+      "value": "100%",
       "status": "On target",
       "tone": "green",
-      "detail": "110 of 111 due tasks complete · 1 overdue actions"
+      "detail": "111 of 111 due tasks complete · 0 overdue actions"
     }
   ],
   "milestones": [
@@ -233,8 +233,8 @@
   ],
   "publishedRisksIssues": [],
   "readiness": {
-    "percent": 91,
+    "percent": 100,
     "label": "Ready for current gate",
-    "note": "10 of 11 due readiness checks passed."
+    "note": "11 of 11 due readiness checks passed."
   }
 }
