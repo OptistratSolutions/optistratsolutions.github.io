@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T18:59:25.538Z",
+  "generatedAt": "2026-10-22T22:12:47.807Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -90,7 +90,7 @@
       "value": "100%",
       "status": "On target",
       "tone": "green",
-      "detail": "111 of 111 due tasks complete · 0 overdue actions"
+      "detail": "112 of 112 due tasks complete · 0 overdue actions"
     }
   ],
   "milestones": [
