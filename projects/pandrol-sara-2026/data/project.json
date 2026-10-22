@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T04:48:00.402Z",
+  "generatedAt": "2026-10-22T09:46:04.673Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -22,17 +22,17 @@
     "to": "2026-10-26"
   },
   "nextMilestone": {
-    "name": "SARA exhibition",
-    "date": "2026-10-23T02:00:00.000Z",
+    "name": "Project close-out",
+    "date": "2026-10-30T02:00:00.000Z",
     "complete": false,
     "overdue": false,
     "unlinked": false,
-    "note": "in progress",
+    "note": "on hold",
     "state": "next"
   },
   "progress": {
-    "percent": 93.6,
-    "detail": "102 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 94.5,
+    "detail": "103 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [],
   "deliveryKpis": [
@@ -178,11 +178,11 @@
     {
       "name": "SARA exhibition",
       "date": "2026-10-23T02:00:00.000Z",
-      "complete": false,
+      "complete": true,
       "overdue": false,
       "unlinked": false,
-      "note": "in progress",
-      "state": "next"
+      "note": "Achieved",
+      "state": "complete"
     },
     {
       "name": "Project close-out",
@@ -191,18 +191,13 @@
       "overdue": false,
       "unlinked": false,
       "note": "on hold",
-      "state": "upcoming"
+      "state": "next"
     }
   ],
   "upcomingDeadlines": [
     {
       "name": "4.3 – Manage breakdown, return logistics and asset reconciliation",
       "dueDate": "2026-10-22T02:00:00.000Z",
-      "status": "planning"
-    },
-    {
-      "name": "4.2 – Lead exhibition operations and daily KPI/issue control",
-      "dueDate": "2026-10-23T02:00:00.000Z",
       "status": "in progress"
     },
     {
