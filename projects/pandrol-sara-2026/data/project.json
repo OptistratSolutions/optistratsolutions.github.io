@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T19:24:38.105Z",
+  "generatedAt": "2026-10-23T22:27:31.195Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -41,7 +41,7 @@
       "value": "100%",
       "status": "On target",
       "tone": "green",
-      "detail": "9 of 9 due critical gates achieved"
+      "detail": "10 of 10 due critical gates achieved"
     },
     {
       "label": "Budget status",
@@ -90,7 +90,7 @@
       "value": "100%",
       "status": "On target",
       "tone": "green",
-      "detail": "112 of 112 due tasks complete · 0 overdue actions"
+      "detail": "113 of 113 due tasks complete · 0 overdue actions"
     }
   ],
   "milestones": [
