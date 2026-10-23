@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T10:19:45.286Z",
+  "generatedAt": "2026-10-23T15:18:08.234Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -27,12 +27,12 @@
     "complete": false,
     "overdue": false,
     "unlinked": false,
-    "note": "on hold",
+    "note": "in progress",
     "state": "next"
   },
   "progress": {
-    "percent": 95.4,
-    "detail": "104 of 109 executable tasks complete · unweighted by time estimates"
+    "percent": 97.2,
+    "detail": "106 of 109 executable tasks complete · unweighted by time estimates"
   },
   "clientAttention": [],
   "deliveryKpis": [
@@ -190,7 +190,7 @@
       "complete": false,
       "overdue": false,
       "unlinked": false,
-      "note": "on hold",
+      "note": "in progress",
       "state": "next"
     }
   ],
@@ -198,27 +198,17 @@
     {
       "name": "4.5 – Reconcile supplier invoices, commitments and final budget",
       "dueDate": "2026-10-26T02:00:00.000Z",
-      "status": "on hold"
-    },
-    {
-      "name": "4.4 – Clean, qualify and hand over leads for follow-up",
-      "dueDate": "2026-10-26T02:00:00.000Z",
-      "status": "on hold"
-    },
-    {
-      "name": "4.6 – Analyse KPIs and issue the exhibition results report",
-      "dueDate": "2026-10-30T02:00:00.000Z",
-      "status": "on hold"
+      "status": "in progress"
     },
     {
       "name": "4.7 – Complete lessons learned, handover and formal close-out",
       "dueDate": "2026-10-30T02:00:00.000Z",
-      "status": "on hold"
+      "status": "in progress"
     },
     {
       "name": "5.9 – Decommission SARA 2026 automations, scheduled tasks and local project services",
       "dueDate": "2026-10-31T02:00:00.000Z",
-      "status": "awaiting information"
+      "status": "in progress"
     }
   ],
   "publishedRisksIssues": [],
