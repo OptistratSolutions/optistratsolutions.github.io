@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T19:57:11.735Z",
+  "generatedAt": "2026-10-26T23:34:54.325Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -16,10 +16,10 @@
     "summary": "No critical schedule exception is currently visible in the published project data."
   },
   "phase": {
-    "name": "Event delivery",
-    "description": "On-site setup, exhibition operations and controlled breakdown",
-    "from": "2026-10-20",
-    "to": "2026-10-26"
+    "name": "Close-out",
+    "description": "Lead handover, reconciliation, KPI report and lessons learned",
+    "from": "2026-10-27",
+    "to": "2026-10-30"
   },
   "nextMilestone": {
     "name": "Project close-out",
@@ -90,7 +90,7 @@
       "value": "100%",
       "status": "On target",
       "tone": "green",
-      "detail": "113 of 113 due tasks complete · 0 overdue actions"
+      "detail": "115 of 115 due tasks complete · 0 overdue actions"
     }
   ],
   "milestones": [
