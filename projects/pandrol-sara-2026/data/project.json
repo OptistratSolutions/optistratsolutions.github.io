@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-31T19:03:26.540Z",
+  "generatedAt": "2026-10-31T22:27:02.292Z",
   "project": {
     "id": "869edm1p7",
     "reference": "PROJ-1360",
@@ -85,10 +85,10 @@
     },
     {
       "label": "Schedule health",
-      "value": "99%",
+      "value": "98%",
       "status": "On target",
       "tone": "green",
-      "detail": "117 of 118 due tasks complete · 1 overdue actions"
+      "detail": "117 of 119 due tasks complete · 2 overdue actions"
     }
   ],
   "milestones": [
@@ -192,13 +192,7 @@
       "state": "next"
     }
   ],
-  "upcomingDeadlines": [
-    {
-      "name": "5.9 – Decommission SARA 2026 automations, scheduled tasks and local project services",
-      "dueDate": "2026-10-31T02:00:00.000Z",
-      "status": "in progress"
-    }
-  ],
+  "upcomingDeadlines": [],
   "publishedRisksIssues": [],
   "readiness": {
     "percent": 100,
